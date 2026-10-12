@@ -9,7 +9,7 @@ Text between `---` lines at the top of a file is the page's settings ("front mat
 ## Add a paper
 
 1. Go to `content/publication/` and click **Add file → Create new file**.
-2. Name it `lastname-year-short-title/index.md` (for example `smith-2027-cavity-bec/index.md`). **This folder name becomes the paper's permanent web address, so never rename it later.**
+2. Name it `lastname-year-short-title/index.md` (for example `smith-2027-cavity-bec/index.md`). **This folder name becomes the paper's permanent web address (`/works/your-folder-name/`), so never rename it later.**
 3. Paste this and fill it in:
 
 ```yaml

@@ -8,7 +8,7 @@ education:
     notes:
       - "Supervisor: Professor Lindsay J. LeBlanc"
       - "Dissertation: Nonlinear interactions using neutral atomic gases"
-    link: { name: "Dissertation", url: "publication/smith-2024-phd-dissertation/" }
+    link: { name: "Dissertation", url: "works/smith-2024-phd-dissertation/" }
   - years: "2009 – 2015"
     degree: "B.Sc. in Physics, cum laude"
     org: "Brigham Young University, Department of Physics and Astronomy"
@@ -16,7 +16,7 @@ education:
     notes:
       - "Minors: Mathematics, Music"
       - "Senior thesis: Reflectance Measurements of Two Thin Film Materials in the UV"
-    link: { name: "Senior thesis", url: "publication/smith-2015-senior-thesis/" }
+    link: { name: "Senior thesis", url: "works/smith-2015-senior-thesis/" }
 
 positions:
   - years: "2026 – present"

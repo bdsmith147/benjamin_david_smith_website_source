@@ -10,7 +10,7 @@
     <li><a href="{{ $parent.Parent.RelPermalink }}">{{ $parent.Parent.Title }}</a></li>
     {{- end }}
     {{- if eq .Section "talk" }}
-    <li><a href="{{ "publication/" | relURL }}#presentations">{{ with site.GetPage "/publication" }}{{ .Title }}{{ end }}</a></li>
+    <li><a href="{{ (site.GetPage "/publication").RelPermalink }}#presentations">{{ with site.GetPage "/publication" }}{{ .Title }}{{ end }}</a></li>
     {{- else }}
     <li><a href="{{ $parent.RelPermalink }}">{{ $parent.Title }}</a></li>
     {{- end }}

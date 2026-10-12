@@ -4,7 +4,7 @@
   <header class="list-header">
     <h1>{{ .Title }}</h1>
     {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
-    <p><a class="inline-link" href="{{ "publication/" | relURL }}#presentations">All works →</a></p>
+    <p><a class="inline-link" href="{{ (site.GetPage "/publication").RelPermalink }}#presentations">All works →</a></p>
   </header>
   {{- range .Pages.GroupByDate "2006" }}
   <section class="year-group" aria-labelledby="y{{ .Key }}">

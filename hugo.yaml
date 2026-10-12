@@ -56,9 +56,12 @@ taxonomies:
   publication_type: publication_types
 
 permalinks:
-  publication: /publication/:contentbasename/
-  talk: /talk/:contentbasename/
-  software: /software/:contentbasename/
+  page:
+    publication: /works/:contentbasename/   # papers live at /works/<folder-name>/
+    talk: /talk/:contentbasename/
+    software: /software/:contentbasename/
+  section:
+    publication: /works/                    # the Works list page
 
 markup:
   goldmark:
@@ -100,7 +103,7 @@ menu:
       url: /faith/
       weight: 40
     - name: Works
-      url: /publication/
+      url: /works/
       weight: 50
     - name: Software
       url: /software/

@@ -17,7 +17,7 @@ A playbook for anyone (human or AI) maintaining this site. Read it before changi
 ## Content model
 
 - Every item is a folder with `index.md`. **The folder name is the permanent URL** (`permalinks` use `:contentbasename`). Never rename a folder once live; change `title:` instead.
-- `content/publication/`: articles (`journal_article`), submitted work (`preprint`), theses (`thesis`).
+- `content/publication/`: articles (`journal_article`), submitted work (`preprint`), theses (`thesis`). Shown publicly as **Works**: the list is at `/works/` and each paper at `/works/<folder>/` (`permalinks` in `hugo.yaml`); the internal section name stays `publication`. Templates link to the list with `(site.GetPage "/publication").RelPermalink`, never a hard-coded path.
 - `content/talk/`: presentations (`publication_types: [presentation]`, `talk_type`: invited / contributed / seminar / poster).
 - `content/software/`: tools (`publication_types: [software]`).
 - Structured, repeated data lives in `data/`: `cv.yaml`, `teaching.yaml`, `coauthors.json`, `writings_tabs.yaml`. Templates read these; nothing is typed twice.

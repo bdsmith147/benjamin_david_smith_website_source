@@ -27,7 +27,7 @@
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="see-meta">{{ with .Params.journal }}{{ . }}, {{ else }}{{ with .Params.publication }}{{ . }}, {{ end }}{{ end }}{{ .Date.Format "2006" }}</span></li>
       {{- end }}
     </ul>
-    <p class="block-links"><a class="btn btn-solid" href="{{ "publication/" | relURL }}">All works</a> <a class="btn btn-outline" href="{{ "software/" | relURL }}">Software</a></p>
+    <p class="block-links"><a class="btn btn-solid" href="{{ (site.GetPage "/publication").RelPermalink }}">All works</a> <a class="btn btn-outline" href="{{ "software/" | relURL }}">Software</a></p>
   </section>
 
   <section class="home-block home-block-teaching" aria-labelledby="home-teaching">

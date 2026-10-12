@@ -5,7 +5,7 @@
 ## Key pages
 
 - [Bio & C.V.](https://bdsmith147.github.io/benjamin_david_smith_website_source/bio/): biography, education, positions, and the full C.V. (PDF)
-- [Works](https://bdsmith147.github.io/benjamin_david_smith_website_source/publication/): peer-reviewed articles, preprints, theses, and presentations
+- [Works](https://bdsmith147.github.io/benjamin_david_smith_website_source/works/): peer-reviewed articles, preprints, theses, and presentations
 - [Software](https://bdsmith147.github.io/benjamin_david_smith_website_source/software/): PolariViz, Spinor-GPE, and other open-source tools
 - [Teaching](https://bdsmith147.github.io/benjamin_david_smith_website_source/teaching/): courses taught, teaching certification, and student feedback
 - [Research](https://bdsmith147.github.io/benjamin_david_smith_website_source/research/): current and past research, with links to co-authors
