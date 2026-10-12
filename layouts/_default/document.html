@@ -5,13 +5,19 @@
   <header class="list-header"><h1>{{ .Title }}</h1></header>
   <div class="prose">{{ .Content }}</div>
   {{- with $d }}
+  {{- /* The document comes from Google Drive so it stays current when the Drive file is updated. */ -}}
+  {{- $view := printf "https://drive.google.com/file/d/%s/view" .drive_id }}
+  {{- $download := printf "https://drive.google.com/uc?export=download&id=%s" .drive_id }}
+  {{- $embed := printf "https://drive.google.com/file/d/%s/preview" .drive_id }}
   <section class="document-embed" aria-labelledby="doc-title">
     <h2 id="doc-title">{{ .title }}</h2>
     <p class="muted">{{ site.Params.owner.name }} · {{ .date }}</p>
-    <p><a class="btn btn-solid" href="{{ .pdf | relURL }}" download>Download essay (PDF)</a></p>
-    <object class="pdf-embed" data="{{ .pdf | relURL }}" type="application/pdf" width="100%" height="900" aria-label="{{ .title }} (PDF)">
-      <p><a href="{{ .pdf | relURL }}">{{ .title }} (PDF)</a></p>
-    </object>
+    <p class="btn-row-inline">
+      <a class="btn btn-solid" href="{{ $download }}">Download essay (PDF)</a>
+      <a class="btn btn-outline" href="{{ $view }}">Open in Google Drive</a>
+    </p>
+    <iframe class="pdf-embed" src="{{ $embed }}" width="100%" height="900" loading="lazy" title="{{ .title }} (PDF)" allow="autoplay"></iframe>
+    <p class="muted">If the essay doesn’t appear above, <a href="{{ $view }}">open it in Google Drive</a>.</p>
   </section>
   {{- end }}
 </article>
