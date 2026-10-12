@@ -1,0 +1,12 @@
+# Benjamin D. Smith
+
+> Benjamin D. Smith is an experimental atomic, optical, and quantum physicist and a National Research Council Postdoctoral Research Fellow at the Air Force Research Laboratory in Albuquerque, New Mexico. His research covers quantum sensing, laser cooling and trapping, atom interferometry, Bose-Einstein condensates, and quantum memories. He holds a Ph.D. in physics from the University of Alberta and a B.Sc. from Brigham Young University.
+
+## Key pages
+
+- [Bio & C.V.](https://bdsmith147.github.io/benjamin_david_smith_website_source/bio/): biography, education, positions, honors, and the full C.V. (PDF)
+- [Writings](https://bdsmith147.github.io/benjamin_david_smith_website_source/publication/): peer-reviewed articles, preprints, theses, and presentations
+- [Software](https://bdsmith147.github.io/benjamin_david_smith_website_source/software/): PolariViz, Spinor-GPE, and other open-source tools
+- [Teaching](https://bdsmith147.github.io/benjamin_david_smith_website_source/teaching/): courses taught, teaching certification, and student feedback
+- [People](https://bdsmith147.github.io/benjamin_david_smith_website_source/authors/): co-authors
+- [Contact](https://bdsmith147.github.io/benjamin_david_smith_website_source/contact/): email and profiles (Google Scholar, GitHub, LinkedIn, ORCID)

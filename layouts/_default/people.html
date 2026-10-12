@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{- /* Names-only People page (solo researcher): every co-author found in any `authors:` list,
+       alphabetised by last name, linked through data/coauthors.json. */ -}}
+{{- $owner := site.Params.owner.name }}
+{{- $names := slice }}
+{{- range where site.RegularPages "Section" "in" (slice "publication" "talk" "software") }}
+  {{- range .Params.authors }}{{ if and (ne . $owner) (not (in $names .)) }}{{ $names = $names | append . }}{{ end }}{{ end }}
+{{- end }}
+{{- $rows := slice }}
+{{- range $names }}{{ $rows = $rows | append (dict "name" . "last" (index (last 1 (split . " ")) 0)) }}{{ end }}
+{{- $rows = sort $rows "last" }}
+<div class="page-wrap">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
+  </header>
+  <ul class="people-list">
+    {{- range $rows }}
+    {{- $info := index site.Data.coauthors .name }}
+    {{- if and $info $info.url }}
+    <li><a href="{{ $info.url }}">{{ .name }}</a></li>
+    {{- else }}
+    <li>{{ .name }}<!-- no verified link for {{ .name }}: add one in data/coauthors.json --></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</div>
+{{ end }}

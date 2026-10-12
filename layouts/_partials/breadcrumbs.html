@@ -1,0 +1,18 @@
+{{- /* Home / Parent / Title */ -}}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ "" | relURL }}">{{ i18n "label_home" }}</a></li>
+    {{- $parent := .Parent }}
+    {{- if and $parent (not $parent.IsHome) }}
+    {{- if and $parent.Parent (not $parent.Parent.IsHome) }}
+    <li><a href="{{ $parent.Parent.RelPermalink }}">{{ $parent.Parent.Title }}</a></li>
+    {{- end }}
+    {{- if eq .Section "talk" }}
+    <li><a href="{{ "publication/" | relURL }}#presentations">{{ with site.GetPage "/publication" }}{{ .Title }}{{ end }}</a></li>
+    {{- else }}
+    <li><a href="{{ $parent.RelPermalink }}">{{ $parent.Title }}</a></li>
+    {{- end }}
+    {{- end }}
+    <li aria-current="page">{{ .Title | truncate 70 }}</li>
+  </ol>
+</nav>

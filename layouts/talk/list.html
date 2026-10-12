@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="page-wrap">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
+    <p><a class="inline-link" href="{{ "publication/" | relURL }}#presentations">All writings and presentations →</a></p>
+  </header>
+  {{- range .Pages.GroupByDate "2006" }}
+  <section class="year-group" aria-labelledby="y{{ .Key }}">
+    <h2 id="y{{ .Key }}" class="year-heading">{{ .Key }}</h2>
+    <ol class="pub-list">
+      {{- range .Pages }}
+      <li class="pub-list-item">{{ partial "citation_row.html" . }}</li>
+      {{- end }}
+    </ol>
+  </section>
+  {{- end }}
+</div>
+{{ end }}

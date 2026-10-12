@@ -1,0 +1,10 @@
+{{- /* Link buttons from front-matter `links:`. Local paths (files/…) are resolved under baseURL. */ -}}
+{{- with .Params.links }}
+<ul class="btn-row" aria-label="Links">
+  {{- range . }}
+  {{- $u := .url }}
+  {{- $ext := hasPrefix $u "http" }}
+  <li><a class="btn btn-outline" href="{{ if $ext }}{{ $u }}{{ else }}{{ strings.TrimPrefix "/" $u | relURL }}{{ end }}">{{ .name }}</a></li>
+  {{- end }}
+</ul>
+{{- end }}

@@ -1,0 +1,78 @@
+{{ define "main" }}
+{{- $t := site.Data.teaching }}
+{{- $q := .Params.phys111 }}
+<article class="page-wrap teaching-page">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.subtitle }}<p class="list-subtitle teaching-motto">{{ . }}</p>{{ end }}
+    <p><a class="inline-link" href="{{ "teaching/philosophy/" | relURL }}">Statement of Teaching Philosophy →</a></p>
+  </header>
+
+  <div class="highlight-grid">
+    <section class="highlight" aria-labelledby="adjunct">
+      <p class="eyebrow">{{ $t.adjunct.dates }}</p>
+      <h2 id="adjunct">{{ $t.adjunct.role }}</h2>
+      <p class="cv-org">{{ $t.adjunct.org }} · {{ $t.adjunct.place }}</p>
+      <p>{{ $t.adjunct.summary }}</p>
+      <dl class="course-list">
+        {{- range $t.adjunct.courses }}
+        <dt>{{ .code }}: {{ .name }} <span class="muted">({{ .term }})</span></dt>
+        <dd>{{ .description }} <span class="muted">Average student rating {{ .rating }}.</span></dd>
+        {{- end }}
+      </dl>
+    </section>
+
+    <section class="highlight" aria-labelledby="gtlp" id="gtlp-section">
+      <p class="eyebrow">Certification, {{ $t.gtlp.year }}</p>
+      <h2 id="gtlp">{{ $t.gtlp.name }}</h2>
+      <p class="cv-org">{{ $t.gtlp.org }}</p>
+      <p>The Graduate Teaching and Learning Program helps graduate students engage with best practices and the scholarship of teaching, learning, and course design, and supports their development as future primary instructors. Benjamin completed all three levels:</p>
+      <ul>{{ range $t.gtlp.levels }}<li>{{ . }}</li>{{ end }}</ul>
+      <p><a class="inline-link" href="{{ $t.gtlp.url }}">About the program (University of Alberta) →</a></p>
+    </section>
+  </div>
+
+  <section class="teach-section" aria-labelledby="phys-111" id="phys-111-section">
+    <h2 id="phys-111">PHYS 111: Quantum Mechanics and You</h2>
+    <p class="muted">Course design, Graduate Teaching and Learning Program Level 3, January–April 2022</p>
+    <p>For Level 3 of the program, Benjamin designed and outlined a university course in quantum mechanics for incoming first-year students from all over campus, organized in modules around quantum principles and their applications without heavy mathematical formalism. He presented the course design at the NanoCanada <em>From Earth to Space</em> conference in June 2022.</p>
+    <blockquote class="course-desc"><p>{{ $q.description }}</p><footer>From the PHYS 111 course description</footer></blockquote>
+    <details class="expander">
+      <summary>Intended learning outcomes</summary>
+      <ol>{{ range $q.outcomes }}<li>{{ . }}</li>{{ end }}</ol>
+    </details>
+    <p>The culminating project is an <em>UnEssay</em>: students choose a topic related to the course that interests them, research it, and present their findings in a creative format. Early assignments, such as a topic-selection document assessed with a single-point rubric, scaffold students toward it.</p>
+    <ul class="btn-row">
+      {{- range $q.artifacts }}
+      <li><a class="btn btn-outline" href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}">{{ .name }}</a></li>
+      {{- end }}
+    </ul>
+  </section>
+
+  <section class="teach-section" aria-labelledby="assistant">
+    <h2 id="assistant">Teaching Assistant</h2>
+    <div class="ta-grid">
+      {{- range $t.assistant }}
+      <div>
+        <h3>{{ .org }} <span class="muted">({{ .dates }})</span></h3>
+        <ul>{{ range .courses }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+      {{- end }}
+    </div>
+  </section>
+
+  <section class="teach-section" aria-labelledby="feedback">
+    <h2 id="feedback">Student Feedback</h2>
+    <p class="muted">Selected anonymous comments from students.</p>
+    <div class="quote-grid">
+      {{- range $t.feedback }}
+      <figure class="quote">
+        <blockquote><p>“{{ .quote }}”</p></blockquote>
+        <figcaption>{{ .course }}</figcaption>
+      </figure>
+      {{- end }}
+    </div>
+  </section>
+</article>
+{{ end }}

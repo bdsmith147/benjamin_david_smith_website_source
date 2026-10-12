@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ site.LanguageCode | default "en" }}">
+<head>
+  {{- partial "head.html" . }}
+</head>
+<body class="{{ if .IsHome }}is-home{{ else }}section-{{ .Section | default "page" }}{{ end }}">
+  <a class="skip-link" href="#main">{{ i18n "label_skip" }}</a>
+  {{ partial "components/headers/navbar.html" . }}
+  <main id="main" tabindex="-1">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "site_footer.html" . }}
+  {{ partial "components/search-modal.html" . }}
+</body>
+</html>

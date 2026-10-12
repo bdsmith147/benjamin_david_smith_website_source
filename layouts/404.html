@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="page-wrap not-found">
+  <h1>{{ i18n "label_not_found" }}</h1>
+  <p>The page you were looking for isn’t here. It may have moved when this site was rebuilt.</p>
+  <form class="nf-search" role="search" onsubmit="event.preventDefault(); window.openSiteSearch && window.openSiteSearch(this.q.value);">
+    <label for="nf-q" class="sr-only">{{ i18n "label_search" }}</label>
+    <input id="nf-q" name="q" type="search" placeholder="{{ i18n "label_search_placeholder" }}">
+    <button type="submit" class="btn btn-solid">{{ i18n "label_search" }}</button>
+  </form>
+  <ul class="nf-links">
+    <li><a href="{{ "" | relURL }}">{{ i18n "label_home" }}</a></li>
+    {{- range site.Menus.main }}{{ if not (strings.Contains .URL "#") }}
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{- end }}{{ end }}
+  </ul>
+</div>
+{{ end }}

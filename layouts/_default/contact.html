@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{- $owner := site.Params.owner }}
+<article class="page-wrap contact-page">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header"><h1>{{ .Title }}</h1></header>
+  <div class="prose">{{ .Content }}</div>
+  <dl class="contact-list">
+    <dt>{{ i18n "label_email" }}</dt>
+    <dd><a href="mailto:{{ $owner.email }}">{{ $owner.email }}</a></dd>
+    <dt>Affiliation</dt>
+    <dd>{{ $owner.title }}, {{ $owner.institution }}, {{ $owner.location }}</dd>
+    {{- range $owner.links }}
+    <dt>{{ .name }}</dt>
+    <dd><a href="{{ .url }}">{{ .url | replaceRE `^https?://(www\.)?` "" | strings.TrimSuffix "/" }}</a></dd>
+    {{- end }}
+  </dl>
+</article>
+{{ end }}

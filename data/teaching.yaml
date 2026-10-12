@@ -1,0 +1,64 @@
+# Teaching history shown on the Teaching page. Course list follows the C.V.
+# <!-- The previous website also listed PHSCS 105 (Fall 2010 – Winter 2011, BYU) and PHYS 297 (Winter 2022, U. of Alberta), which are not on the current C.V. Add them back here if they should appear. -->
+
+adjunct:
+  role: "Adjunct Instructor"
+  org: "Brigham Young University–Idaho, Department of Physics"
+  place: "Rexburg, Idaho"
+  dates: "January – July 2016"
+  summary: "Responsible for designing and implementing the course layouts, instruction, and assessments for several classes of 20–30 students each."
+  courses:
+    - code: "PHYS 121"
+      name: "Principles of Physics 1"
+      term: "Spring 2016"
+      rating: "6.3/7.0"
+      description: "The first course in the calculus-based sequence of introductory physics for science majors, focused on Newtonian laws of motion and the concept of energy, taught with peer-instruction active learning."
+    - code: "PHYS 220"
+      name: "Principles of Physics 3"
+      term: "Winter 2016"
+      rating: "5.6/7.0"
+      description: "The third calculus-based introductory physics course, teaching principles of electricity and magnetism and how they relate to Maxwell’s equations."
+    - code: "PHYS 150"
+      name: "Beginning Physics Lab"
+      term: "Winter & Spring 2016"
+      rating: "6.1/7.0"
+      description: "A hands-on laboratory course introducing first-year students to experimental physics, with emphasis on experimental uncertainty, statistical analysis, regressions, and simple numerical modelling."
+
+assistant:
+  - org: "University of Alberta"
+    dates: "2016 – 2023"
+    courses:
+      - "PHYS 295: Experimental Physics I (2023 & 2017)"
+      - "PHYS 292: Experimental Physics for Engineers (2018)"
+      - "PHYS 372: Quantum Mechanics A (2017)"
+      - "PHYS 130: Wave Motion, Optics, and Sound (2016)"
+  - org: "Brigham Young University"
+    dates: "2014 – 2015"
+    courses:
+      - "PHYS 245: Experiments in Contemporary Physics (2015)"
+      - "PHYS 108: General Physics Lab 2 (2014)"
+      - "PHYS 123: Introduction to Waves, Optics, and Thermodynamics (2014)"
+
+gtlp:
+  name: "Graduate Teaching and Learning Program"
+  org: "Faculty of Graduate Studies and Research, University of Alberta"
+  url: "https://www.ualberta.ca/graduate-studies/professional-development/graduate-teaching-and-learning-program/index.html"
+  year: "2022"
+  levels:
+    - "Level 1, Foundations (25 hours)"
+    - "Level 2, Practicum (18 hours)"
+    - "Level 3, Pedagogy and Course Design (39 hours)"
+
+feedback:
+  - course: "PHYS 295 student, Fall 2017, U. of Alberta"
+    quote: "He was always willing to help out when I needed. He provided just the right amount of guidance, in that it was the perfect balance of developing my skills individually while also being nudged in the right direction when I asked a question. Ben was very exceptional, one of the best TAs I’ve ever had. He was also available to meet outside of lab hours so that I could ask him a question, and he gave me some great feedback to improve my writing skills in a research context as well."
+  - course: "PHYS 150 student, Winter 2016, BYU–Idaho"
+    quote: "The class was enjoyable. Br. Smith is enthusiastic about the subject matter and always brought a great energy to the class. He was always encouraging and willing to help us when needed."
+  - course: "PHYS 220 student, Winter 2016, BYU–Idaho"
+    quote: "Bro. Smith was awesome. I am glad that I got to be a part of his first class ever taught. It was sweet to watch him grow throughout the semester. Very helpful outside of class."
+  - course: "PHYS 220 student, Winter 2016, BYU–Idaho"
+    quote: "He was very helpful, he definitely provided the opportunity to learn and to improve. Tremendously satisfied. A+"
+  - course: "PHYS 121 student, Spring 2016, BYU–Idaho"
+    quote: "The instructor really cares about his students and is always looking to improve. Sometimes he is too hard on himself and sometimes he needs to realize that he will improve as he keeps trying and to not give up."
+  - course: "PHYS 121 student, Spring 2016, BYU–Idaho"
+    quote: "Your love for us and the material was inspiring. Thank you for all you did."

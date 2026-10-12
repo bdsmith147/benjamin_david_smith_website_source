@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="page-wrap">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
+  </header>
+  {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  <ol class="pub-list">
+    {{- range .Pages.ByDate.Reverse }}
+    <li class="pub-list-item">
+      {{- if in (slice "publication" "talk" "software") .Section }}{{ partial "citation_row.html" . }}
+      {{- else }}<a class="cite-title" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+    </li>
+    {{- end }}
+  </ol>
+</div>
+{{ end }}

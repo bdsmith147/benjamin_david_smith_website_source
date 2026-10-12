@@ -1,0 +1,231 @@
+{{ define "main" }}
+{{- $pages := where site.RegularPages "Section" "in" (slice "publication" "talk" "software") }}
+{{- $pages = $pages.ByDate.Reverse }}
+{{- $tabs := site.Data.writings_tabs.tabs }}
+
+{{- /* Serialise every entry once; the same data drives the DOM attributes and the BibTeX export. */ -}}
+{{- $entries := slice }}
+{{- $years := slice }}
+{{- $tabCounts := dict }}
+{{- range $pages }}
+  {{- $tab := partial "fn/tab.html" . }}
+  {{- $tabCounts = merge $tabCounts (dict $tab (add (index $tabCounts $tab | default 0) 1)) }}
+  {{- $y := .Date.Format "2006" }}
+  {{- if not (in $years $y) }}{{ $years = $years | append $y }}{{ end }}
+  {{- $entries = $entries | append (dict
+      "id" (printf "%s-%s" .Section .File.ContentBaseName)
+      "title" (.Title | plainify | htmlUnescape)
+      "slug" .File.ContentBaseName
+      "url" .RelPermalink
+      "date" $y
+      "ts" .Date.Unix
+      "authors" (.Params.authors | default slice)
+      "publication" (.Params.publication | default (.Params.event | default ""))
+      "abstract" (.Params.abstract | default (.Params.summary | default "") | plainify | htmlUnescape)
+      "pubTypes" (.Params.publication_types | default slice)
+      "tab" $tab
+      "sub" (.Params.talk_type | default "")
+      "bib" (partial "fn/bibtex.html" .)
+  ) }}
+{{- end }}
+{{- $years = sort $years "value" "desc" }}
+
+<div class="page-wrap writings">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
+  </header>
+
+  <nav class="pub-tabs" role="tablist" aria-label="{{ .Title }}">
+    <button type="button" class="tab-btn active" data-tab="all" role="tab" aria-selected="true">{{ i18n "label_all" }} <span class="tab-count">{{ len $pages }}</span></button>
+    {{- range $t := $tabs }}{{ with index $tabCounts $t.id }}
+    <button type="button" class="tab-btn" data-tab="{{ $t.id }}" role="tab" aria-selected="false">{{ $t.label }} <span class="tab-count">{{ . }}</span></button>
+    {{- end }}{{ end }}
+  </nav>
+
+  <div class="pub-layout">
+    <aside class="pub-sidebar" aria-label="Filters">
+      <div class="filter-group">
+        <label for="pub-search" class="filter-label">{{ i18n "label_search" }}</label>
+        <input id="pub-search" type="search" placeholder="{{ i18n "label_filter_placeholder" }}" autocomplete="off">
+      </div>
+      {{- range $t := $tabs }}{{ with $t.subtypes }}
+      <fieldset class="filter-group subtype-group" data-for-tab="{{ $t.id }}" hidden>
+        <legend class="filter-label">{{ i18n "label_type" }}</legend>
+        {{- range . }}
+        {{- /* Only offer sub-types that have at least one entry. */ -}}
+        {{- if where $pages "Params.talk_type" .id }}
+        <label class="check-row"><input type="checkbox" name="sub" value="{{ .id }}"><span>{{ .label }}</span></label>
+        {{- end }}
+        {{- end }}
+      </fieldset>
+      {{- end }}{{ end }}
+      <fieldset class="filter-group">
+        <legend class="filter-label">{{ i18n "label_year" }}</legend>
+        <div class="year-list">
+          {{- range $years }}
+          <label class="check-row"><input type="checkbox" name="year" value="{{ . }}"><span>{{ . }}</span></label>
+          {{- end }}
+        </div>
+      </fieldset>
+      <button type="button" id="pub-reset" class="btn btn-outline btn-small">{{ i18n "btn_reset" }}</button>
+    </aside>
+
+    <section class="pub-results" aria-label="Results">
+      <div class="pub-toolbar">
+        <p class="result-count" aria-live="polite">{{ len $pages }} {{ i18n "label_of" }} {{ len $pages }} {{ i18n "label_results" }}</p>
+        <div class="toolbar-right">
+          <label for="pub-sort" class="sr-only">{{ i18n "label_sort" }}</label>
+          <select id="pub-sort">
+            <option value="newest">{{ i18n "sort_newest" }}</option>
+            <option value="oldest">{{ i18n "sort_oldest" }}</option>
+            <option value="az">{{ i18n "sort_az" }}</option>
+            <option value="za">{{ i18n "sort_za" }}</option>
+          </select>
+          <button type="button" id="pub-bib" class="btn btn-chip">{{ i18n "btn_download_bib" }}</button>
+        </div>
+      </div>
+      <ol class="pub-list" id="pub-list">
+        {{- range $i, $p := $pages }}
+        {{- $e := index $entries $i }}
+        <li class="pub-item pub-list-item" id="{{ $e.id }}" data-id="{{ $e.id }}" data-tab="{{ $e.tab }}" data-year="{{ $e.date }}" data-ts="{{ $e.ts }}" data-sub="{{ $e.sub }}" data-types="{{ $e.pubTypes | jsonify }}">
+          {{ partial "citation_row.html" $p }}
+        </li>
+        {{- end }}
+      </ol>
+      <p class="pub-empty" hidden>{{ i18n "label_no_results" }}</p>
+    </section>
+  </div>
+</div>
+
+<script>
+(function () {
+  var data = {{ $entries | jsonify | safeJS }};
+  var byId = {};
+  data.forEach(function (d) { byId[d.id] = d; });
+  var list = document.getElementById('pub-list');
+  var tabs = document.querySelectorAll('.tab-btn');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.pub-item'));
+  var countEl = document.querySelector('.result-count');
+  var emptyEl = document.querySelector('.pub-empty');
+  var search = document.getElementById('pub-search');
+  var sortSel = document.getElementById('pub-sort');
+  var yearBoxes = document.querySelectorAll('input[name=year]');
+  var subGroups = document.querySelectorAll('.subtype-group');
+  var ofLabel = {{ i18n "label_of" }}, resultsLabel = {{ i18n "label_results" }};
+  var validTabs = Array.prototype.map.call(tabs, function (b) { return b.dataset.tab; });
+  var state = { tab: 'all', q: '', years: [], sub: [], sort: 'newest' };
+
+  function haystack(d) {
+    return (d.title + ' ' + d.authors.join(' ') + ' ' + d.publication + ' ' + d.abstract).toLowerCase();
+  }
+  data.forEach(function (d) { d.hay = haystack(d); });
+
+  function apply() {
+    var visible = 0, terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
+    items.forEach(function (item) {
+      var d = byId[item.dataset.id];
+      var show = (state.tab === 'all') || (item.dataset.tab === state.tab);
+      if (show && state.years.length) show = state.years.indexOf(item.dataset.year) > -1;
+      if (show && state.sub.length && state.tab !== 'all') show = state.sub.indexOf(item.dataset.sub) > -1;
+      if (show && terms.length) show = terms.every(function (t) { return d.hay.indexOf(t) > -1; });
+      item.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    countEl.textContent = visible + ' ' + ofLabel + ' ' + items.length + ' ' + resultsLabel;
+    emptyEl.hidden = visible > 0;
+
+    tabs.forEach(function (btn) {
+      var on = btn.dataset.tab === state.tab;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    subGroups.forEach(function (g) { g.hidden = g.dataset.forTab !== state.tab; });
+
+    var sorted = items.slice().sort(function (a, b) {
+      var da = byId[a.dataset.id], db = byId[b.dataset.id];
+      if (state.sort === 'oldest') return da.ts - db.ts;
+      if (state.sort === 'az') return da.title.localeCompare(db.title);
+      if (state.sort === 'za') return db.title.localeCompare(da.title);
+      return db.ts - da.ts;
+    });
+    sorted.forEach(function (el) { list.appendChild(el); });
+  }
+
+  function toHash() {
+    var parts = [state.tab];
+    if (state.q) parts.push('q=' + encodeURIComponent(state.q));
+    if (state.years.length) parts.push('year=' + state.years.join(','));
+    if (state.sub.length) parts.push('type=' + state.sub.join(','));
+    if (state.sort !== 'newest') parts.push('sort=' + state.sort);
+    return '#' + parts.join('&');
+  }
+  function fromHash() {
+    var h = decodeURIComponent(location.hash.replace(/^#/, ''));
+    var parts = h ? h.split('&') : [];
+    var tab = parts.length && parts[0].indexOf('=') === -1 ? parts.shift() : 'all';
+    state.tab = validTabs.indexOf(tab) > -1 ? tab : 'all';
+    state.q = ''; state.years = []; state.sub = []; state.sort = 'newest';
+    parts.forEach(function (kv) {
+      var i = kv.indexOf('='), k = kv.slice(0, i), v = kv.slice(i + 1);
+      if (k === 'q') state.q = v;
+      else if (k === 'year') state.years = v.split(',').filter(Boolean);
+      else if (k === 'type') state.sub = v.split(',').filter(Boolean);
+      else if (k === 'sort') state.sort = v;
+    });
+    search.value = state.q; sortSel.value = state.sort;
+    yearBoxes.forEach(function (b) { b.checked = state.years.indexOf(b.value) > -1; });
+    document.querySelectorAll('input[name=sub]').forEach(function (b) { b.checked = state.sub.indexOf(b.value) > -1; });
+  }
+  function commit(push) {
+    var h = toHash();
+    if (h !== location.hash) history[push ? 'pushState' : 'replaceState'](null, '', h);
+    apply();
+  }
+
+  function filterByTab(tabId) {
+    state.tab = tabId;
+    state.sub = [];
+    document.querySelectorAll('input[name=sub]').forEach(function (b) { b.checked = false; });
+    commit(true);
+  }
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () { filterByTab(btn.dataset.tab); });
+  });
+  var timer;
+  search.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(function () { state.q = search.value.trim(); commit(false); }, 150); });
+  sortSel.addEventListener('change', function () { state.sort = sortSel.value; commit(false); });
+  yearBoxes.forEach(function (b) { b.addEventListener('change', function () {
+    state.years = Array.prototype.filter.call(yearBoxes, function (x) { return x.checked; }).map(function (x) { return x.value; });
+    commit(false);
+  }); });
+  document.querySelectorAll('input[name=sub]').forEach(function (b) { b.addEventListener('change', function () {
+    state.sub = Array.prototype.filter.call(document.querySelectorAll('input[name=sub]'), function (x) { return x.checked; }).map(function (x) { return x.value; });
+    commit(false);
+  }); });
+  document.getElementById('pub-reset').addEventListener('click', function () {
+    state = { tab: state.tab, q: '', years: [], sub: [], sort: 'newest' };
+    search.value = ''; sortSel.value = 'newest';
+    yearBoxes.forEach(function (b) { b.checked = false; });
+    document.querySelectorAll('input[name=sub]').forEach(function (b) { b.checked = false; });
+    commit(true);
+  });
+  document.getElementById('pub-bib').addEventListener('click', function () {
+    var bib = items.filter(function (el) { return el.style.display !== 'none'; })
+      .map(function (el) { return byId[el.dataset.id].bib; }).join('\n\n');
+    var blob = new Blob([bib + '\n'], { type: 'application/x-bibtex' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'benjamin-d-smith-writings.bib';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+  window.addEventListener('popstate', function () { fromHash(); apply(); });
+  window.addEventListener('hashchange', function () { fromHash(); apply(); });
+
+  fromHash();
+  apply();
+})();
+</script>
+{{ end }}

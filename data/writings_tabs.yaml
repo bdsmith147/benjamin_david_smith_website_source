@@ -1,0 +1,24 @@
+# Tabs on the Writings page, in display order. An item appears under the first tab whose
+# `types` list contains one of the item's publication_types. "All" is added automatically.
+tabs:
+  - id: articles
+    label: Articles
+    types: [journal_article]
+  - id: submitted
+    label: Submitted
+    types: [preprint, under_review]
+  - id: theses
+    label: Theses
+    types: [thesis]
+  - id: presentations
+    label: Presentations
+    types: [presentation]
+    # sub-filter checkboxes, keyed by the talk's `talk_type`
+    subtypes:
+      - { id: invited, label: "Invited talks" }
+      - { id: contributed, label: "Contributed talks" }
+      - { id: seminar, label: "Other talks" }
+      - { id: poster, label: "Posters" }
+  - id: software
+    label: Software
+    types: [software]

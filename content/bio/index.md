@@ -1,0 +1,11 @@
+---
+title: "Bio & C.V."
+layout: bio
+aliases: ["/about/", "/about/main/"]
+cv_pdf: "files/benjamin-d-smith-cv.pdf"
+---
+Benjamin D. Smith is an experimental atomic, optical, and quantum physicist who believes that nothing is too complicated to understand; sometimes it just takes a new way of looking at it. Whether he’s building a quantum sensor or teaching a class, his goal is the same: to make the complex practical and accessible. After earning his B.Sc. in physics, cum laude, from Brigham Young University, he worked as an adjunct physics instructor at BYU–Idaho, teaching introductory physics and laboratory skills to some of the best (and kindest) students around. His journey northward continued all the way to Canada, where he completed his Ph.D. at the University of Alberta under Prof. Lindsay LeBlanc. His thesis explored quantum effects in ultracold matter and used warm atomic vapors to convert microwave signals into optical ones for future quantum networks.
+
+After graduate school, Benjamin joined Sandia National Laboratories as a postdoctoral researcher, where he worked on making quantum accelerometers small, fast, and sensitive—a technology that has historically filled an entire optical table. He is now a National Research Council Postdoctoral Fellow at the Air Force Research Laboratory, where he researches how to enhance interactions between light and quantum gases to build the next generation of quantum sensors.
+
+Benjamin’s favorite experimental result, though, is the moment a topic suddenly clicks for someone else. His biggest pet peeve is hearing people claim they’re “just not smart enough” to understand something, and he takes real joy in proving them wrong. When he isn’t in the lab, Benjamin enjoys reading old books, fixing his car, tuning pianos, and interpreting between Spanish and English for friends. He approaches each with the same stubborn curiosity he brings to quantum physics. He and his wife, Kristie, are the parents of three wonderful children, who keep him on his toes with excellent questions.

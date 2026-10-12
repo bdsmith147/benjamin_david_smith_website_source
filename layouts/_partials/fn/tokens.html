@@ -1,0 +1,8 @@
+{{- /* Returns the significant lowercase tokens of a title string (stop words and tokens shorter than 3 characters removed). */ -}}
+{{- $stop := slice "a" "an" "and" "the" "of" "for" "in" "on" "to" "with" "by" "at" "as" "is" "are" "be" "or" "from" "into" "using" "via" "new" "not" "no" "it" "its" "we" "our" "their" "you" "your" "this" "that" "these" "those" "but" "if" "than" "then" "so" "can" "will" "would" "could" "should" "may" "might" "also" "more" "most" "some" "all" "any" "each" "every" "who" "whom" "which" "what" "when" "where" "why" "how" "about" "between" "among" "through" "over" "under" "after" "before" "upon" "across" "per" "vs" "de" "la" "les" "et" "du" -}}
+{{- $clean := . | plainify | lower | replaceRE `[^a-z0-9]+` " " -}}
+{{- $out := slice -}}
+{{- range split $clean " " -}}
+  {{- if and (ge (len .) 3) (not (in $stop .)) (not (in $out .)) -}}{{- $out = $out | append . -}}{{- end -}}
+{{- end -}}
+{{- return $out -}}

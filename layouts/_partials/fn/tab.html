@@ -1,0 +1,9 @@
+{{- /* Returns the Writings tab id for a page: the first tab in data/writings_tabs.yaml listing one of its publication_types. */ -}}
+{{- $types := .Params.publication_types | default slice -}}
+{{- if and (eq (len $types) 0) (eq .Section "talk") }}{{ $types = slice "presentation" }}{{ end -}}
+{{- if and (eq (len $types) 0) (eq .Section "software") }}{{ $types = slice "software" }}{{ end -}}
+{{- $tab := "other" -}}
+{{- range site.Data.writings_tabs.tabs -}}
+  {{- if and (eq $tab "other") (gt (len (intersect $types .types)) 0) }}{{ $tab = .id }}{{ end -}}
+{{- end -}}
+{{- return $tab -}}

@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{- $cv := site.Data.cv }}
+<article class="page-wrap bio-page">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+  <div class="bio-top">
+    {{ partial "portrait.html" (dict "size" 180 "class" "bio-photo" "eager" true) }}
+    <div class="prose bio-text">{{ .Content }}</div>
+  </div>
+  <p class="btn-row-inline">
+    <a class="btn btn-solid" href="{{ .Params.cv_pdf | relURL }}" download>{{ i18n "btn_download_cv" }}</a>
+    <span class="muted">{{ i18n "label_updated" }} {{ (time $cv.updated).Format "Jan 2, 2006" }}</span>
+  </p>
+
+  <nav class="toc-inline" aria-label="C.V. sections">
+    <a href="#education">Education</a> · <a href="#positions">Research Positions</a> · <a href="#full-cv">Full C.V.</a>
+  </nav>
+
+  <section class="cv-section" aria-labelledby="education">
+    <h2 id="education">Education</h2>
+    {{- range $cv.education }}
+    <div class="cv-entry">
+      <p class="cv-when">{{ .years }}</p>
+      <div class="cv-what">
+        <h3>{{ .degree }}</h3>
+        <p class="cv-org">{{ .org }} · {{ .place }}</p>
+        <ul>{{ range .notes }}<li>{{ . }}</li>{{ end }}</ul>
+        {{- with .link }}<p><a class="inline-link" href="{{ .url | relURL }}">{{ .name }} →</a></p>{{ end }}
+      </div>
+    </div>
+    {{- end }}
+  </section>
+
+  <section class="cv-section" aria-labelledby="positions">
+    <h2 id="positions">Research Positions</h2>
+    {{- range $cv.positions }}
+    <div class="cv-entry">
+      <p class="cv-when">{{ .years }}</p>
+      <div class="cv-what">
+        <h3>{{ .role }}</h3>
+        <p class="cv-org">{{ .org }}{{ with .mentor }} · {{ . }}{{ end }}</p>
+        <ul>{{ range .notes }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+    </div>
+    {{- end }}
+    <p class="area-more"><a class="inline-link" href="{{ "teaching/" | relURL }}">Teaching experience →</a> <a class="inline-link" href="{{ "publication/" | relURL }}">Publications and presentations →</a></p>
+  </section>
+
+  <section class="cv-section" aria-labelledby="full-cv">
+    <h2 id="full-cv">Full C.V.</h2>
+    <object class="pdf-embed" data="{{ .Params.cv_pdf | relURL }}" type="application/pdf" width="100%" height="900" aria-label="Curriculum vitae of {{ site.Params.owner.name }} (PDF)">
+      <p><a href="{{ .Params.cv_pdf | relURL }}">{{ i18n "btn_download_cv" }}</a></p>
+    </object>
+  </section>
+</article>
+{{ end }}

@@ -1,0 +1,21 @@
+{{- /* One dense citation line for a publication, talk, or software page. Context: the page. */ -}}
+{{- $p := . -}}
+{{- $kind := partial "fn/kind.html" . -}}
+{{- $isTalk := eq $kind "kind_presentation" -}}
+<span class="cite-line">
+  {{- if $isTalk }}
+  <a class="cite-title" href="{{ .RelPermalink }}">{{ .Title }}</a>.
+  <span class="cite-venue">{{ .Params.event }}{{ with .Params.location }}, {{ . }}{{ end }}</span>,
+  <span class="cite-year">{{ .Date.Format "Jan 2006" }}</span>.
+  {{- with .Params.talk_type }} <span class="kind-chip">{{ i18n (printf "talk_%s" .) }}</span>{{ end }}
+  {{- else if eq $kind "kind_software" }}
+  <a class="cite-title" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.summary }} — <span class="cite-venue">{{ . | markdownify | plainify | truncate 160 }}</span>{{ end }}
+  <span class="kind-chip">{{ i18n $kind }}</span>
+  {{- else }}
+  <span class="cite-authors">{{ partial "authors_line.html" (.Params.authors | default slice) }}</span>
+  (<span class="cite-year">{{ .Date.Format "2006" }}</span>).
+  <a class="cite-title" href="{{ .RelPermalink }}">{{ .Title }}</a>.
+  {{- with .Params.publication }} <em class="cite-venue">{{ . }}</em>.{{ end }}
+  {{- if ne $kind "kind_paper" }} <span class="kind-chip">{{ with .Params.status }}{{ . }}{{ else }}{{ i18n $kind }}{{ end }}</span>{{ end }}
+  {{- end }}
+</span>

@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{- $owner := site.Params.owner }}
+{{- $r := .Params.research }}
+{{- $t := .Params.teaching }}
+<section class="hero" aria-labelledby="hero-name">
+  {{ partial "portrait.html" (dict "size" 200 "class" "hero-photo" "eager" true) }}
+  <div class="hero-text">
+    <h1 id="hero-name">{{ $owner.name }}</h1>
+    <p class="hero-title">{{ $owner.title }}</p>
+    <p class="hero-inst">{{ $owner.institution }} · {{ $owner.location }}</p>
+    {{- with .Params.intro }}<p class="hero-intro">{{ . }}</p>{{ end }}
+    <p class="hero-links">
+      <a href="mailto:{{ $owner.email }}">{{ $owner.email }}</a>
+      {{- range $owner.links }}<span aria-hidden="true"> · </span><a href="{{ .url }}">{{ .name }}</a>{{ end }}
+    </p>
+  </div>
+</section>
+
+<div class="home-blocks">
+  <section class="home-block" aria-labelledby="home-research">
+    <p class="eyebrow">Research</p>
+    <h2 id="home-research">Light, atoms, and quantum sensors</h2>
+    <p>{{ $r.text }}</p>
+    <h3 class="block-sub">Latest writings</h3>
+    <ul class="block-list">
+      {{- range first 3 (where site.RegularPages "Section" "publication").ByDate.Reverse }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="see-meta">{{ with .Params.journal }}{{ . }}, {{ else }}{{ with .Params.publication }}{{ . }}, {{ end }}{{ end }}{{ .Date.Format "2006" }}</span></li>
+      {{- end }}
+    </ul>
+    <p class="block-links"><a class="btn btn-solid" href="{{ "publication/" | relURL }}">Writings &amp; presentations</a> <a class="btn btn-outline" href="{{ "software/" | relURL }}">Software</a></p>
+  </section>
+
+  <section class="home-block home-block-teaching" aria-labelledby="home-teaching">
+    <p class="eyebrow">Teaching</p>
+    <h2 id="home-teaching">Making physics approachable</h2>
+    <ul class="highlight-list">
+      {{- range $t.highlights }}
+      <li><strong>{{ if .url }}<a href="{{ .url | relURL }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</strong><span>{{ .text }}</span></li>
+      {{- end }}
+    </ul>
+    {{- with $t.quote }}
+    <figure class="home-quote">
+      <blockquote><p>“{{ . }}”</p></blockquote>
+      <figcaption>{{ $t.quote_source }}</figcaption>
+    </figure>
+    {{- end }}
+    <p class="block-links"><a class="btn btn-solid" href="{{ "teaching/" | relURL }}">Teaching</a> <a class="btn btn-outline" href="{{ "teaching/philosophy/" | relURL }}">Teaching philosophy</a></p>
+  </section>
+</div>
+
+<nav class="home-tiles" aria-label="More on this site">
+  {{- range .Params.tiles }}
+  <a class="tile" href="{{ .url | relURL }}">
+    <span class="tile-title">{{ .title }} <span aria-hidden="true">→</span></span>
+    <span class="tile-text">{{ .text }}</span>
+  </a>
+  {{- end }}
+</nav>
+{{ end }}

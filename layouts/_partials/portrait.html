@@ -1,0 +1,9 @@
+{{- /* Owner portrait, square-cropped at build time. Context: dict "size" (px) "class" "eager" */ -}}
+{{- $owner := site.Params.owner -}}
+{{- $size := .size | default 220 -}}
+{{- with resources.Get $owner.photo -}}
+  {{- $img := .Fill (printf "%dx%d Top q82" (mul $size 2) (mul $size 2)) -}}
+  <span class="{{ $.class }}"><img src="{{ $img.RelPermalink }}" width="{{ $size }}" height="{{ $size }}" alt="Portrait of {{ $owner.name }}"{{ if not $.eager }} loading="lazy"{{ end }}></span>
+{{- else -}}
+  <span class="{{ .class }}"><span class="monogram" style="width:{{ $size }}px;height:{{ $size }}px" aria-hidden="true">BDS</span></span>
+{{- end -}}

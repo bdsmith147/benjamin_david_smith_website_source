@@ -1,0 +1,13 @@
+{{- /* Fallback search index used by the search modal when Pagefind is not available. */ -}}
+{{- $docs := slice -}}
+{{- range where site.Pages "Kind" "in" (slice "page" "section") -}}
+  {{- if and .Title (not .Params.private) -}}
+  {{- $kind := "Page" -}}
+  {{- if in (slice "publication" "talk" "software") .Section }}{{ if .IsPage }}{{ $kind = i18n (partial "fn/kind.html" .) }}{{ end }}{{ end -}}
+  {{- $meta := "" -}}
+  {{- if eq .Section "talk" }}{{ $meta = printf "%s, %s" (.Params.event | default "") (.Date.Format "Jan 2006") }}{{ else if .Params.publication }}{{ $meta = .Params.publication }}{{ end -}}
+  {{- $text := printf "%s %s %s %s %s" (delimit (.Params.authors | default slice) " ") (.Params.abstract | default "") (.Params.summary | default "") (.Params.event | default "") (.Plain) | plainify | htmlUnescape -}}
+  {{- $docs = $docs | append (dict "title" (.Title | plainify | htmlUnescape) "url" .RelPermalink "kind" $kind "meta" $meta "text" ($text | truncate 2000)) -}}
+  {{- end -}}
+{{- end -}}
+{{- $docs | jsonify -}}

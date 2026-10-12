@@ -1,0 +1,110 @@
+baseURL: "https://bdsmith147.github.io/benjamin_david_smith_website_source/"  # MUST end with slash
+title: "Benjamin D. Smith"
+languageCode: en-us
+enableRobotsTXT: true
+enableGitInfo: false
+
+outputs:
+  home: [HTML, RSS, JSON]
+
+params:
+  description: "Benjamin D. Smith is an experimental atomic and quantum physicist working on the next generation of quantum sensors."
+  owner:
+    name: "Benjamin D. Smith"
+    first_name: "Benjamin"
+    title: "National Research Council Postdoctoral Research Fellow"
+    institution: "Air Force Research Laboratory"
+    location: "Albuquerque, New Mexico"
+    email: "benjamindsmith100@gmail.com"
+    photo: "images/portrait.jpg"   # in assets/; cropped and resized at build time
+    links:
+      - name: Google Scholar
+        url: "https://scholar.google.com/citations?user=aJeEkmAAAAAJ&hl=en"
+      - name: GitHub
+        url: "https://github.com/bdsmith147"
+      - name: LinkedIn
+        url: "https://www.linkedin.com/in/bdsmith101/"
+      - name: ORCID
+        url: "https://orcid.org/0000-0001-9323-9931"
+  appearance:
+    theme_day: custom
+    theme_night: custom
+    color_mode: light
+    font: native
+    font_size: L
+  header:
+    navbar:
+      enable: true
+      show_search: true
+      logo:
+        text: "Benjamin D. Smith"
+  features:
+    search:
+      provider: pagefind   # built in CI; falls back to the site's index.json, then to a Google site: search
+  extensions:
+    css:
+      - css/custom.css
+  mysite:
+    credit: false      # "Footer credit" box unchecked on the information form
+    discovery: true    # "Invisible marker" box checked on the information form
+    design:
+      seed: "legacy"   # design quest skipped: migrated from benjamindavidsmith.com, keeping its centered portrait and teal accent
+      concept: "Plain white typeset page, centered round portrait, deep-teal accent carried over from the previous site, Air Force blue as a thin institutional rule."
+
+taxonomies:
+  tag: tags
+  publication_type: publication_types
+
+permalinks:
+  publication: /publication/:contentbasename/
+  talk: /talk/:contentbasename/
+  software: /software/:contentbasename/
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          inline:
+            - ['\(', '\)']
+          block:
+            - ['\[', '\]']
+            - ['$$', '$$']
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+
+imaging:
+  quality: 82
+  resampleFilter: lanczos
+  anchor: Top
+
+sitemap:
+  changefreq: monthly
+
+menu:
+  main:
+    - name: Bio & C.V.
+      url: /bio/
+      weight: 10
+    - name: Writings
+      url: /publication/
+      weight: 20
+    - name: Software
+      url: /software/
+      weight: 40
+    - name: People
+      url: /authors/
+      weight: 50
+    - name: Teaching
+      url: /teaching/
+      weight: 60
+    - name: Faith
+      url: /faith/
+      weight: 65
+    - name: Contact
+      url: /contact/
+      weight: 70

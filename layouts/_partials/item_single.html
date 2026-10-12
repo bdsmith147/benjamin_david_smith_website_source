@@ -1,0 +1,58 @@
+{{- /* Detail page shared by publications, talks, and software. */ -}}
+{{- $p := . -}}
+{{- $kind := partial "fn/kind.html" . -}}
+{{- $isTalk := eq $kind "kind_presentation" -}}
+{{- $isSoftware := eq $kind "kind_software" -}}
+<article class="page-wrap item-page">
+  {{ partial "breadcrumbs.html" . }}
+  {{- with partial "functions/get_featured_image.html" . }}
+  {{- $img := .Fit "720x480" }}
+  <figure class="item-featured">
+    <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $p.Title }}">
+    {{- with $p.Params.image_credit }}<figcaption>{{ . }}</figcaption>{{ end }}
+  </figure>
+  {{- end }}
+  <header class="item-header">
+    <h1>{{ .Title }}</h1>
+    {{- if $isTalk }}
+    <p class="item-meta">
+      <span class="kind-chip">{{ with .Params.talk_type }}{{ i18n (printf "talk_%s" .) }}{{ else }}{{ i18n $kind }}{{ end }}</span>
+      {{ .Params.event }}{{ with .Params.location }} · {{ . }}{{ end }} · <time datetime="{{ .Date.Format "2006-01" }}">{{ .Date.Format "January 2006" }}</time>
+    </p>
+    {{- else if $isSoftware }}
+    {{- with .Params.summary }}<p class="item-lede">{{ . | markdownify }}</p>{{ end }}
+    <p class="item-meta">
+      {{- with .Params.authors }}{{ partial "authors_line.html" . }}{{ end }}
+      {{- with .Params.language }} · {{ . }}{{ end }}{{ with .Params.license }} · License {{ . }}{{ end }}
+    </p>
+    {{- else }}
+    <p class="item-authors">{{ partial "authors_line.html" (.Params.authors | default slice) }}</p>
+    <p class="item-meta">
+      {{- with .Params.publication }}<em>{{ . }}</em> · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      {{- with .Params.status }} · <span class="kind-chip">{{ . }}</span>{{ end }}
+    </p>
+    {{- end }}
+  </header>
+
+  <div class="item-actions">
+    {{ partial "page_links.html" . }}
+    {{- if not $isTalk }}
+    <details class="cite-box">
+      <summary class="btn btn-chip">{{ i18n "btn_cite" }}</summary>
+      <pre><code>{{ partial "fn/bibtex.html" . }}</code></pre>
+    </details>
+    {{- end }}
+  </div>
+
+  {{- with .Params.abstract }}
+  <section id="abstract" class="item-abstract">
+    <h2>{{ i18n "label_abstract" }}</h2>
+    <p>{{ . | markdownify }}</p>
+  </section>
+  {{- end }}
+
+  {{- with .Content }}
+  <div class="prose item-body">{{ . }}</div>
+  {{- end }}
+
+</article>

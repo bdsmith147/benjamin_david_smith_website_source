@@ -1,0 +1,17 @@
+{{- /* Returns a BibTeX entry string for a publication, talk, or software page. */ -}}
+{{- $p := . -}}
+{{- $types := .Params.publication_types | default slice -}}
+{{- $authors := .Params.authors | default (slice site.Params.owner.name) -}}
+{{- $first := index $authors 0 -}}
+{{- $last := index (last 1 (split $first " ")) 0 | lower | replaceRE `[^a-z]` "" -}}
+{{- $tok := partial "fn/tokens.html" .Title -}}
+{{- $key := printf "%s%s%s" $last (.Date.Format "2006") (index ($tok | default (slice "item")) 0) -}}
+{{- $kind := "misc" -}}
+{{- if in $types "journal_article" }}{{ $kind = "article" }}{{ else if in $types "book" }}{{ $kind = "book" }}{{ else if and (in $types "thesis") (strings.Contains (lower (.Params.publication | default "")) "ph.d") }}{{ $kind = "phdthesis" }}{{ end -}}
+{{- $f := slice (printf "  title = {%s}" (.Title | plainify | htmlUnescape)) (printf "  author = {%s}" (delimit $authors " and ")) (printf "  year = {%s}" (.Date.Format "2006")) -}}
+{{- if eq $kind "article" }}{{ with .Params.journal }}{{ $f = $f | append (printf "  journal = {%s}" .) }}{{ end }}{{ end -}}
+{{- if eq $kind "phdthesis" }}{{ $f = $f | append "  school = {University of Alberta}" }}{{ end -}}
+{{- if and (ne $kind "article") (ne $kind "phdthesis") }}{{ with (.Params.publication | default .Params.event) }}{{ $f = $f | append (printf "  howpublished = {%s}" .) }}{{ end }}{{ end -}}
+{{- with .Params.doi }}{{ $f = $f | append (printf "  doi = {%s}" .) }}{{ end -}}
+{{- $f = $f | append (printf "  url = {%s}" .Permalink) -}}
+{{- return printf "@%s{%s,\n%s\n}" $kind $key (delimit $f ",\n") -}}

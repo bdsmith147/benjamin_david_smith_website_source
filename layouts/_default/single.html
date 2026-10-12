@@ -1,0 +1,17 @@
+{{ define "main" }}
+<article class="page-wrap">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
+    {{- with .Params.authors }}<p class="item-authors">{{ partial "authors_line.html" . }}</p>{{ end }}
+  </header>
+  {{- with partial "functions/get_featured_image.html" . }}{{ $img := .Fit "960x540" }}
+  <figure class="item-featured"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $.Title }}"></figure>
+  {{- end }}
+  <div class="prose">{{ .Content }}</div>
+  {{- if eq .Parent.Section "teaching" }}
+  <p class="area-more"><a class="inline-link" href="{{ .Parent.RelPermalink }}">← {{ .Parent.Title }}</a></p>
+  {{- end }}
+</article>
+{{ end }}

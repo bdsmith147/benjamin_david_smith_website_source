@@ -1,0 +1,4 @@
+{{- /* Returns the page's featured image resource (featured.jpg/png/webp next to index.md), or nil. */ -}}
+{{- $img := "" -}}
+{{- with .Resources.GetMatch "featured.*" }}{{ if eq .ResourceType "image" }}{{ $img = . }}{{ end }}{{ end -}}
+{{- return $img -}}

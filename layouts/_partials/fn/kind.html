@@ -1,0 +1,15 @@
+{{- /* Returns the i18n key for an item's kind label. publication_types is checked before the section. */ -}}
+{{- $t := .Params.publication_types | default slice -}}
+{{- $k := "kind_paper" -}}
+{{- if in $t "book" }}{{ $k = "kind_book" -}}
+{{- else if in $t "data" }}{{ $k = "kind_dataset" -}}
+{{- else if in $t "patent" }}{{ $k = "kind_patent" -}}
+{{- else if in $t "court_brief" }}{{ $k = "kind_court_brief" -}}
+{{- else if in $t "software" }}{{ $k = "kind_software" -}}
+{{- else if in $t "thesis" }}{{ $k = "kind_thesis" -}}
+{{- else if in $t "preprint" }}{{ $k = "kind_preprint" -}}
+{{- else if in $t "presentation" }}{{ $k = "kind_presentation" -}}
+{{- else if eq .Section "talk" }}{{ $k = "kind_presentation" -}}
+{{- else if eq .Section "software" }}{{ $k = "kind_software" -}}
+{{- end -}}
+{{- return $k -}}

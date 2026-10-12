@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="page-wrap">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
+  </header>
+  {{- $featured := where .Pages "Params.featured" true }}
+  {{- $rest := .Pages.ByDate.Reverse | complement $featured }}
+  <ul class="card-grid">
+    {{- range $featured | append $rest }}
+    <li class="card{{ if .Params.featured }} card-featured{{ end }}">
+      <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{- with .Params.summary }}<p class="card-text">{{ . | markdownify }}</p>{{ end }}
+      <p class="card-meta">{{ with .Params.language }}{{ . }} · {{ end }}{{ .Date.Format "2006" }}</p>
+      {{ partial "page_links.html" . }}
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{ end }}

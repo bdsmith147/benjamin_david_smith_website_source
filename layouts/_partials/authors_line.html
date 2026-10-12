@@ -1,0 +1,7 @@
+{{- /* Author list with the site owner in bold. Context: slice of names. */ -}}
+{{- $owner := site.Params.owner.name -}}
+{{- $n := len . -}}
+{{- range $i, $a := . -}}
+  {{- if gt $i 0 }}{{ if eq (add $i 1) $n }}{{ if gt $n 2 }},{{ end }} &amp; {{ else }}, {{ end }}{{ end -}}
+  {{- if eq $a $owner }}<strong class="owner">{{ $a }}</strong>{{ else }}<span class="author">{{ $a }}</span>{{ end -}}
+{{- end -}}

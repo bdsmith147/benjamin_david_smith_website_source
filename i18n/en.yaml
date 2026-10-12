@@ -1,0 +1,113 @@
+# Every button and label on the site. Rename things here, not in the templates.
+- id: btn_pdf
+  translation: "PDF"
+- id: btn_article
+  translation: "Article"
+- id: btn_publisher
+  translation: "Publisher's Version"
+- id: btn_arxiv
+  translation: "arXiv"
+- id: btn_poster
+  translation: "Poster (PDF)"
+- id: btn_video
+  translation: "Video"
+- id: btn_slides
+  translation: "Slides"
+- id: btn_code
+  translation: "Source Code"
+- id: btn_live
+  translation: "Live App"
+- id: btn_cite
+  translation: "Cite"
+- id: btn_download_cv
+  translation: "Download C.V. (PDF)"
+- id: btn_bio
+  translation: "Bio & C.V."
+- id: btn_writings
+  translation: "Writings"
+- id: btn_contact
+  translation: "Contact"
+- id: btn_view_all
+  translation: "View all"
+- id: btn_download_bib
+  translation: "Download citations (BibTeX)"
+- id: btn_reset
+  translation: "Reset filters"
+- id: label_abstract
+  translation: "Abstract"
+- id: label_search
+  translation: "Search"
+- id: label_search_placeholder
+  translation: "Search the site…"
+- id: label_filter_placeholder
+  translation: "Title, author, venue, abstract"
+- id: label_type
+  translation: "Type"
+- id: label_year
+  translation: "Year"
+- id: label_sort
+  translation: "Sort"
+- id: sort_newest
+  translation: "Newest first"
+- id: sort_oldest
+  translation: "Oldest first"
+- id: sort_az
+  translation: "Title A–Z"
+- id: sort_za
+  translation: "Title Z–A"
+- id: label_results
+  translation: "results"
+- id: label_of
+  translation: "of"
+- id: label_all
+  translation: "All"
+- id: label_home
+  translation: "Home"
+- id: label_skip
+  translation: "Skip to content"
+- id: label_menu
+  translation: "Menu"
+- id: label_close
+  translation: "Close"
+- id: label_no_results
+  translation: "No matches."
+- id: label_search_google
+  translation: "Search this site with Google"
+- id: kind_paper
+  translation: "Paper"
+- id: kind_presentation
+  translation: "Presentation"
+- id: kind_software
+  translation: "Software"
+- id: kind_dataset
+  translation: "Dataset"
+- id: kind_book
+  translation: "Book"
+- id: kind_thesis
+  translation: "Thesis"
+- id: kind_preprint
+  translation: "Preprint"
+- id: kind_patent
+  translation: "Patent"
+- id: kind_court_brief
+  translation: "Court Brief"
+- id: label_event
+  translation: "Event"
+- id: label_location
+  translation: "Location"
+- id: label_venue
+  translation: "Venue"
+- id: talk_invited
+  translation: "Invited talk"
+- id: talk_contributed
+  translation: "Contributed talk"
+- id: talk_seminar
+  translation: "Talk"
+- id: talk_poster
+  translation: "Poster"
+- id: label_email
+  translation: "Email"
+- id: label_updated
+  translation: "Updated"
+- id: label_not_found
+  translation: "Page not found"

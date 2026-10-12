@@ -1,0 +1,37 @@
+{{- $current := .RelPermalink }}
+<header class="site-header">
+  <nav class="navbar" aria-label="Main">
+    <a class="brand" href="{{ "" | relURL }}">{{ site.Params.header.navbar.logo.text | default site.Title }}</a>
+    <div class="nav-right">
+      <ul id="nav-menu" class="nav-links">
+        {{- range site.Menus.main }}
+        {{- /* Hugo already resolves menu URLs against baseURL (including the /REPO/ path). */ -}}
+        {{- $href := .URL }}
+        {{- $active := and (not (strings.Contains $href "#")) (ne $href ("" | relURL)) (hasPrefix $current $href) }}
+        <li><a href="{{ $href }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+      {{- if site.Params.header.navbar.show_search }}
+      <button type="button" class="search-btn" data-search-open aria-label="{{ i18n "label_search" }} (Ctrl+K)" title="{{ i18n "label_search" }} (Ctrl+K)">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      </button>
+      {{- end }}
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="{{ i18n "label_menu" }}">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-toggle'), menu = document.getElementById('nav-menu');
+      btn.addEventListener('click', function () {
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+        menu.classList.toggle('open', !open);
+      });
+      menu.addEventListener('click', function (e) {
+        if (e.target.closest('a')) { btn.setAttribute('aria-expanded', 'false'); menu.classList.remove('open'); }
+      });
+    })();
+  </script>
+</header>
