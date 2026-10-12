@@ -90,21 +90,21 @@ menu:
     - name: Bio & C.V.
       url: /bio/
       weight: 10
-    - name: Writings
-      url: /publication/
+    - name: Research
+      url: /research/
       weight: 20
-    - name: Software
-      url: /software/
-      weight: 40
-    - name: People
-      url: /authors/
-      weight: 50
     - name: Teaching
       url: /teaching/
-      weight: 60
+      weight: 30
     - name: Faith
       url: /faith/
-      weight: 65
+      weight: 40
+    - name: Writings
+      url: /publication/
+      weight: 50
+    - name: Software
+      url: /software/
+      weight: 60
     - name: Contact
       url: /contact/
       weight: 70

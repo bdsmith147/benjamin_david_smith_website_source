@@ -74,13 +74,17 @@ Create `content/software/project-name/index.md` with `title`, `date`, `summary`,
 - **Photo:** replace `assets/images/portrait.jpg`. It's cropped to a circle automatically, so a head-and-shoulders photo works best.
 - **Title, institution, email, profile links:** `params.owner` in `hugo.yaml`.
 
+## Update the Research page
+
+`content/research/index.md` is ordinary Markdown: `## ` starts a section, `- ` starts a bullet, and links to your own pages look like `[Title]({{< relref "/publication/folder-name" >}})`. The starter text was drafted from your C.V.; rewrite it freely. The People section at the bottom links to the co-author list.
+
 ## Update teaching
 
 Courses, the certification, and the student feedback quotes are in `data/teaching.yaml`. The PHYS 111 description and links are in `content/teaching/_index.md`. The teaching philosophy statement is `content/teaching/philosophy/index.md`.
 
 ## People page: please review it
 
-The People page (`/authors/`) is **built automatically from the co-authors on your papers, talks, and software**. Each name links to that person's website, university page, or LinkedIn, in that order of preference.
+The People page (`/authors/`, linked from the bottom of the Research page rather than the menu) is **built automatically from the co-authors on your papers, talks, and software**. Each name links to that person's website, university page, or LinkedIn, in that order of preference.
 
 **These links were found by web search and may point to the wrong person or a stale page. Please check every entry.** They live in `data/coauthors.json`:
 

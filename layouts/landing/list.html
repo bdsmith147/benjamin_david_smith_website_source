@@ -19,7 +19,7 @@
 <div class="home-blocks">
   <section class="home-block" aria-labelledby="home-research">
     <p class="eyebrow">Research</p>
-    <h2 id="home-research">Light, atoms, and quantum sensors</h2>
+    <h2 id="home-research"><a class="block-heading-link" href="{{ "research/" | relURL }}">Light, atoms, and quantum sensors <span aria-hidden="true">→</span></a></h2>
     <p>{{ $r.text }}</p>
     <h3 class="block-sub">Latest writings</h3>
     <ul class="block-list">
@@ -32,7 +32,7 @@
 
   <section class="home-block home-block-teaching" aria-labelledby="home-teaching">
     <p class="eyebrow">Teaching</p>
-    <h2 id="home-teaching">Making physics approachable</h2>
+    <h2 id="home-teaching"><a class="block-heading-link" href="{{ "teaching/" | relURL }}">Making physics approachable <span aria-hidden="true">→</span></a></h2>
     <ul class="highlight-list">
       {{- range $t.highlights }}
       <li><strong>{{ if .url }}<a href="{{ .url | relURL }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</strong><span>{{ .text }}</span></li>
@@ -44,7 +44,7 @@
       <figcaption>{{ $t.quote_source }}</figcaption>
     </figure>
     {{- end }}
-    <p class="block-links"><a class="btn btn-solid" href="{{ "teaching/" | relURL }}">Teaching</a> <a class="btn btn-outline" href="{{ "teaching/philosophy/" | relURL }}">Teaching philosophy</a></p>
+    <p class="block-links"><a class="btn btn-outline" href="{{ "teaching/philosophy/" | relURL }}">Teaching philosophy</a></p>
   </section>
 </div>
 

@@ -409,3 +409,7 @@ h1 { font-size: 2.1rem; }
 }
 .tab-count, .result-count, .year-list, .cv-when, .cv-year, .hero-links, .area-count { font-variant-numeric: lining-nums; font-feature-settings: "lnum"; }
 
+.block-heading-link { color: var(--color-text); text-decoration: none; }
+.block-heading-link span { color: var(--color-accent); font-weight: 400; transition: margin-left .18s; margin-left: 2px; }
+.block-heading-link:hover { color: var(--color-accent); }
+.block-heading-link:hover span { margin-left: 6px; }

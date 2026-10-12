@@ -46,6 +46,8 @@ Hugo already applies the base path to menu URLs, so templates use `.URL` from me
 - **No research-area taxonomy.** The work is not organized into fixed topic categories; the home page has a short Research paragraph instead.
 - **Writings is curated**, not a copy of the C.V.: articles, preprints, theses, and only those presentations with a poster or recording. The full C.V. PDF on the Bio page lists everything.
 - **Bio & C.V. page** shows Education and Research Positions, then embeds the full C.V. **from Google Drive** (`cv_drive_id` in `content/bio/index.md`) so it updates when the owner replaces the Drive file. The faith statement on the Faith page works the same way (`document.drive_id` in `content/faith/index.md`). These are deliberate exceptions to "all PDFs live in the repo".
+- **Menu order:** Bio & C.V., Research, Teaching, Faith, Writings, Software, Contact (`menu.main` in `hugo.yaml`). People is not in the menu; it is a section of the Research page, and its `parent_page: "/research"` front matter makes the breadcrumb and highlighted tab read Research.
+- **Home page:** the Research and Teaching block headings link to those pages.
 
 ## Writings page contract
 

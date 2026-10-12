@@ -3,6 +3,8 @@
   <ol>
     <li><a href="{{ "" | relURL }}">{{ i18n "label_home" }}</a></li>
     {{- $parent := .Parent }}
+    {{- /* A page can name a different logical parent (e.g. People sits under Research). */ -}}
+    {{- with .Params.parent_page }}{{ with site.GetPage . }}{{ $parent = . }}{{ end }}{{ end }}
     {{- if and $parent (not $parent.IsHome) }}
     {{- if and $parent.Parent (not $parent.Parent.IsHome) }}
     <li><a href="{{ $parent.Parent.RelPermalink }}">{{ $parent.Parent.Title }}</a></li>

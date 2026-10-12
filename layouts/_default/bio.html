@@ -55,6 +55,10 @@
 
   <section class="cv-section" aria-labelledby="full-cv">
     <h2 id="full-cv">Full C.V.</h2>
+    <p class="btn-row-inline">
+      <a class="btn btn-solid" href="{{ $cvDownload }}">Download (PDF)</a>
+      <a class="btn btn-outline" href="{{ $cvView }}">Open in Google Drive</a>
+    </p>
     <iframe class="pdf-embed" src="{{ $cvEmbed }}" width="100%" height="900" loading="lazy" title="Curriculum vitae of {{ site.Params.owner.name }} (PDF)" allow="autoplay"></iframe>
     <p class="muted">If the C.V. doesn’t appear above, <a href="{{ $cvView }}">open it in Google Drive</a>.</p>
   </section>
