@@ -45,7 +45,7 @@ Hugo already applies the base path to menu URLs, so templates use `.URL` from me
 - **No automatic See Also lists** on item pages; the owner found them distracting. Link related items inline in the body text or with a `links:` button instead.
 - **No research-area taxonomy.** The work is not organized into fixed topic categories; the home page has a short Research paragraph instead.
 - **Writings is curated**, not a copy of the C.V.: articles, preprints, theses, and only those presentations with a poster or recording. The full C.V. PDF on the Bio page lists everything.
-- **Bio & C.V. page** shows Education and Research Positions, then embeds the full C.V.
+- **Bio & C.V. page** shows Education and Research Positions, then embeds the full C.V. **from Google Drive** (`cv_drive_id` in `content/bio/index.md`) so it updates when the owner replaces the Drive file. This is a deliberate exception to "all PDFs live in the repo".
 
 ## Writings page contract
 

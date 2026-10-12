@@ -1,5 +1,10 @@
 {{ define "main" }}
 {{- $cv := site.Data.cv }}
+{{- /* The full C.V. comes from Google Drive so it stays current when the Drive file is updated. */ -}}
+{{- $id := .Params.cv_drive_id }}
+{{- $cvView := printf "https://drive.google.com/file/d/%s/view" $id }}
+{{- $cvDownload := printf "https://drive.google.com/uc?export=download&id=%s" $id }}
+{{- $cvEmbed := printf "https://drive.google.com/file/d/%s/preview" $id }}
 <article class="page-wrap bio-page">
   {{ partial "breadcrumbs.html" . }}
   <header class="list-header">
@@ -10,8 +15,8 @@
     <div class="prose bio-text">{{ .Content }}</div>
   </div>
   <p class="btn-row-inline">
-    <a class="btn btn-solid" href="{{ .Params.cv_pdf | relURL }}" download>{{ i18n "btn_download_cv" }}</a>
-    <span class="muted">{{ i18n "label_updated" }} {{ (time $cv.updated).Format "Jan 2, 2006" }}</span>
+    <a class="btn btn-solid" href="{{ $cvDownload }}">{{ i18n "btn_download_cv" }}</a>
+    <a class="btn btn-outline" href="{{ $cvView }}">Open in Google Drive</a>
   </p>
 
   <nav class="toc-inline" aria-label="C.V. sections">
@@ -50,9 +55,8 @@
 
   <section class="cv-section" aria-labelledby="full-cv">
     <h2 id="full-cv">Full C.V.</h2>
-    <object class="pdf-embed" data="{{ .Params.cv_pdf | relURL }}" type="application/pdf" width="100%" height="900" aria-label="Curriculum vitae of {{ site.Params.owner.name }} (PDF)">
-      <p><a href="{{ .Params.cv_pdf | relURL }}">{{ i18n "btn_download_cv" }}</a></p>
-    </object>
+    <iframe class="pdf-embed" src="{{ $cvEmbed }}" width="100%" height="900" loading="lazy" title="Curriculum vitae of {{ site.Params.owner.name }} (PDF)" allow="autoplay"></iframe>
+    <p class="muted">If the C.V. doesn’t appear above, <a href="{{ $cvView }}">open it in Google Drive</a>.</p>
   </section>
 </article>
 {{ end }}

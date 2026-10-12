@@ -69,7 +69,7 @@ Create `content/software/project-name/index.md` with `title`, `date`, `summary`,
 - **Bio text:** `content/bio/index.md` (everything below the second `---`).
 - **Home page:** `content/_index.md` holds the intro (keep it different from the bio), the Research paragraph, the Teaching highlights and quote, and the tiles that link to other pages.
 - **C.V. highlights** (education and research positions): `data/cv.yaml`.
-- **Full C.V. PDF:** upload a new file to `static/files/` with the same name, `benjamin-d-smith-cv.pdf`, to replace it, then update `updated:` at the top of `data/cv.yaml`.
+- **Full C.V. PDF:** comes straight from Google Drive, so the site shows whatever is in that Drive file. To update it, open the file in Drive and use **⋮ → File information → Manage versions → Upload new version**. Uploading a *new* file instead gives it a new ID; then paste the new ID into `cv_drive_id` in `content/bio/index.md` (the ID is the long string between `/d/` and `/view` in the share link). Sharing must stay on "Anyone with the link".
 - **Photo:** replace `assets/images/portrait.jpg`. It's cropped to a circle automatically, so a head-and-shoulders photo works best.
 - **Title, institution, email, profile links:** `params.owner` in `hugo.yaml`.
 

@@ -2,7 +2,7 @@
 title: "Bio & C.V."
 layout: bio
 aliases: ["/about/", "/about/main/"]
-cv_pdf: "files/benjamin-d-smith-cv.pdf"
+cv_drive_id: "17BbgigyJE5U-YJh2St6AOuMq_zhCEdox"   # Google Drive file ID of the C.V.; must be shared as "Anyone with the link"
 ---
 Benjamin D. Smith is an experimental atomic, optical, and quantum physicist who believes that nothing is too complicated to understand; sometimes it just takes a new way of looking at it. Whether he’s building a quantum sensor or teaching a class, his goal is the same: to make the complex practical and accessible. After earning his B.Sc. in physics, cum laude, from Brigham Young University, he worked as an adjunct physics instructor at BYU–Idaho, teaching introductory physics and laboratory skills to some of the best (and kindest) students around. His journey northward continued all the way to Canada, where he completed his Ph.D. at the University of Alberta under Prof. Lindsay LeBlanc. His thesis explored quantum effects in ultracold matter and used warm atomic vapors to convert microwave signals into optical ones for future quantum networks.
 
