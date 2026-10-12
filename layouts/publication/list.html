@@ -3,7 +3,7 @@
 {{- $pages = $pages.ByDate.Reverse }}
 {{- $tabs := site.Data.writings_tabs.tabs }}
 
-{{- /* Serialise every entry once; the same data drives the DOM attributes and the BibTeX export. */ -}}
+{{- /* Serialise every entry once; the same data drives the DOM attributes and client-side filtering. */ -}}
 {{- $entries := slice }}
 {{- $years := slice }}
 {{- $tabCounts := dict }}
@@ -25,7 +25,6 @@
       "pubTypes" (.Params.publication_types | default slice)
       "tab" $tab
       "sub" (.Params.talk_type | default "")
-      "bib" (partial "fn/bibtex.html" .)
   ) }}
 {{- end }}
 {{- $years = sort $years "value" "desc" }}
@@ -83,7 +82,9 @@
             <option value="az">{{ i18n "sort_az" }}</option>
             <option value="za">{{ i18n "sort_za" }}</option>
           </select>
-          <button type="button" id="pub-bib" class="btn btn-chip">{{ i18n "btn_download_bib" }}</button>
+          {{- range where site.Params.owner.links "name" "Google Scholar" }}
+          <a class="btn btn-outline" href="{{ .url }}">{{ i18n "btn_scholar" }}</a>
+          {{- end }}
         </div>
       </div>
       <ol class="pub-list" id="pub-list">
@@ -210,16 +211,6 @@
     yearBoxes.forEach(function (b) { b.checked = false; });
     document.querySelectorAll('input[name=sub]').forEach(function (b) { b.checked = false; });
     commit(true);
-  });
-  document.getElementById('pub-bib').addEventListener('click', function () {
-    var bib = items.filter(function (el) { return el.style.display !== 'none'; })
-      .map(function (el) { return byId[el.dataset.id].bib; }).join('\n\n');
-    var blob = new Blob([bib + '\n'], { type: 'application/x-bibtex' });
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'benjamin-d-smith-works.bib';
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
   });
   window.addEventListener('popstate', function () { fromHash(); apply(); });
   window.addEventListener('hashchange', function () { fromHash(); apply(); });

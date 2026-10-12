@@ -29,8 +29,8 @@
   translation: "Contact"
 - id: btn_view_all
   translation: "View all"
-- id: btn_download_bib
-  translation: "Download citations (BibTeX)"
+- id: btn_scholar
+  translation: "Google Scholar profile"
 - id: btn_reset
   translation: "Reset filters"
 - id: label_abstract

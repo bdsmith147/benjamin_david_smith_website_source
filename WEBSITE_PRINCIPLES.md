@@ -29,7 +29,7 @@ A playbook for anyone (human or AI) maintaining this site. Read it before changi
 |---|---|
 | `baseof.html` | Shell: skip link, navbar, `<main>`, footer, search modal |
 | `landing/list.html` | Home: centered portrait hero, Research and Teaching blocks, tiles linking to the rest of the site (text in `content/_index.md`) |
-| `publication/list.html` | Works page: server-rendered dense list + vanilla-JS tabs, filters, sort, hash sync, BibTeX export |
+| `publication/list.html` | Works page: server-rendered dense list + vanilla-JS tabs, filters, sort, hash sync, link to Google Scholar |
 | `publication/single.html`, `talk/single.html`, `software/single.html` | All call `_partials/item_single.html` |
 | `talk/list.html`, `software/list.html` | Talks by year; software cards |
 | `_default/bio.html` · `teaching.html` · `people.html` · `contact.html` · `document.html` | Selected with `layout:` in front matter |
