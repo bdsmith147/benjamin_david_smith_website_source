@@ -21,13 +21,13 @@
     <p class="eyebrow">Research</p>
     <h2 id="home-research"><a class="block-heading-link" href="{{ "research/" | relURL }}">Light, atoms, and quantum sensors <span aria-hidden="true">→</span></a></h2>
     <p>{{ $r.text }}</p>
-    <h3 class="block-sub">Latest writings</h3>
+    <h3 class="block-sub">Latest works</h3>
     <ul class="block-list">
       {{- range first 3 (where site.RegularPages "Section" "publication").ByDate.Reverse }}
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="see-meta">{{ with .Params.journal }}{{ . }}, {{ else }}{{ with .Params.publication }}{{ . }}, {{ end }}{{ end }}{{ .Date.Format "2006" }}</span></li>
       {{- end }}
     </ul>
-    <p class="block-links"><a class="btn btn-solid" href="{{ "publication/" | relURL }}">Writings &amp; presentations</a> <a class="btn btn-outline" href="{{ "software/" | relURL }}">Software</a></p>
+    <p class="block-links"><a class="btn btn-solid" href="{{ "publication/" | relURL }}">All works</a> <a class="btn btn-outline" href="{{ "software/" | relURL }}">Software</a></p>
   </section>
 
   <section class="home-block home-block-teaching" aria-labelledby="home-teaching">

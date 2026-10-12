@@ -32,7 +32,7 @@ tags: ["quantum sensing", "atom interferometry"]
 ```
 
 - **tags** are optional keywords; each one gets a page listing the items that share it.
-- The Writings page is a curated selection. Add items that are meaningful and have something to link to (a paper, PDF, poster, or recording); the full C.V. PDF covers everything else.
+- The Works page is a curated selection. Add items that are meaningful and have something to link to (a paper, PDF, poster, or recording); the full C.V. PDF covers everything else.
 - To host a PDF yourself, upload it to `static/files/` and link it as `url: "files/your-file.pdf"` (no leading slash).
 - When a submitted paper is published, change `publication_types` to `["journal_article"]`, remove `status:`, and update the venue and links. Keep the same folder.
 

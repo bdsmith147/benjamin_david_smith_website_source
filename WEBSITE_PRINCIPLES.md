@@ -29,7 +29,7 @@ A playbook for anyone (human or AI) maintaining this site. Read it before changi
 |---|---|
 | `baseof.html` | Shell: skip link, navbar, `<main>`, footer, search modal |
 | `landing/list.html` | Home: centered portrait hero, Research and Teaching blocks, tiles linking to the rest of the site (text in `content/_index.md`) |
-| `publication/list.html` | Writings: server-rendered dense list + vanilla-JS tabs, filters, sort, hash sync, BibTeX export |
+| `publication/list.html` | Works page: server-rendered dense list + vanilla-JS tabs, filters, sort, hash sync, BibTeX export |
 | `publication/single.html`, `talk/single.html`, `software/single.html` | All call `_partials/item_single.html` |
 | `talk/list.html`, `software/list.html` | Talks by year; software cards |
 | `_default/bio.html` · `teaching.html` · `people.html` · `contact.html` · `document.html` | Selected with `layout:` in front matter |
@@ -44,12 +44,12 @@ Hugo already applies the base path to menu URLs, so templates use `.URL` from me
 
 - **No automatic See Also lists** on item pages; the owner found them distracting. Link related items inline in the body text or with a `links:` button instead.
 - **No research-area taxonomy.** The work is not organized into fixed topic categories; the home page has a short Research paragraph instead.
-- **Writings is curated**, not a copy of the C.V.: articles, preprints, theses, and only those presentations with a poster or recording. The full C.V. PDF on the Bio page lists everything.
+- **Works is curated**, not a copy of the C.V.: articles, preprints, theses, and only those presentations with a poster or recording. The full C.V. PDF on the Bio page lists everything.
 - **Bio & C.V. page** shows Education and Research Positions, then embeds the full C.V. **from Google Drive** (`cv_drive_id` in `content/bio/index.md`) so it updates when the owner replaces the Drive file. The faith statement on the Faith page works the same way (`document.drive_id` in `content/faith/index.md`). These are deliberate exceptions to "all PDFs live in the repo".
-- **Menu order:** Bio & C.V., Research, Teaching, Faith, Writings, Software, Contact (`menu.main` in `hugo.yaml`). People is not in the menu; it is a section of the Research page, and its `parent_page: "/research"` front matter makes the breadcrumb and highlighted tab read Research.
+- **Menu order:** Bio & C.V., Research, Teaching, Faith, Works, Software, Contact (`menu.main` in `hugo.yaml`). People is not in the menu; it is a section of the Research page, and its `parent_page: "/research"` front matter makes the breadcrumb and highlighted tab read Research.
 - **Home page:** the Research and Teaching block headings link to those pages.
 
-## Writings page contract
+## Works page contract
 
 - Every item is in the HTML at load time (works without JS and for crawlers).
 - Each `<li class="pub-item">` carries `data-tab`, `data-year`, `data-sub`.
@@ -72,4 +72,4 @@ Skip link; one H1 per page; visible `:focus-visible` outlines; labeled form cont
 - Don't put process notes in visible text; use `<!-- … -->` comments in Markdown.
 - People-page links are guessed: see `UPDATING.md`.
 - Videos are linked externally (Google Drive / YouTube); keep repository files under 100 MB.
-- If the site moves to the custom domain (benjamindavidsmith.com), change `baseURL` in `hugo.yaml`, add `static/CNAME`, and update the URLs in `static/llms.txt`. The `aliases:` on the Bio, Teaching, Writings, and Software pages already redirect the old site's paths (`/about/main/`, `/teaching/main/`, `/research/...`).
+- If the site moves to the custom domain (benjamindavidsmith.com), change `baseURL` in `hugo.yaml`, add `static/CNAME`, and update the URLs in `static/llms.txt`. The `aliases:` on the Bio, Teaching, Works, and Software pages already redirect the old site's paths (`/about/main/`, `/teaching/main/`, `/research/...`).

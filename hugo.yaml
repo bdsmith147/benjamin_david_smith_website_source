@@ -99,7 +99,7 @@ menu:
     - name: Faith
       url: /faith/
       weight: 40
-    - name: Writings
+    - name: Works
       url: /publication/
       weight: 50
     - name: Software

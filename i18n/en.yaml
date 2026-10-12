@@ -23,8 +23,8 @@
   translation: "Download C.V. (PDF)"
 - id: btn_bio
   translation: "Bio & C.V."
-- id: btn_writings
-  translation: "Writings"
+- id: btn_works
+  translation: "Works"
 - id: btn_contact
   translation: "Contact"
 - id: btn_view_all

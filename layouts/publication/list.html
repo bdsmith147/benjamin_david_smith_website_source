@@ -217,7 +217,7 @@
     var blob = new Blob([bib + '\n'], { type: 'application/x-bibtex' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'benjamin-d-smith-writings.bib';
+    a.download = 'benjamin-d-smith-works.bib';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
   });

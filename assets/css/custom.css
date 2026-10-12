@@ -171,7 +171,7 @@ main:focus { outline: none; }
 .cite-venue { color: var(--color-text-muted); }
 .year-heading { font-size: 1.05rem; color: var(--color-accent); margin: 1.4em 0 .3em; }
 
-/* ---- Writings page -------------------------------------------------------- */
+/* ---- Works page -------------------------------------------------------- */
 .pub-tabs { position: sticky; top: var(--nav-h); z-index: 20; background: var(--color-bg); display: flex; gap: 2px; overflow-x: auto; border-bottom: 1px solid var(--color-border); box-shadow: 0 6px 8px -8px rgba(23,34,42,.18); margin: 0 calc(-1 * var(--gutter)) 16px; padding: 0 var(--gutter); scrollbar-width: thin; }
 .tab-btn { background: none; border: 0; border-bottom: 3px solid transparent; padding: 11px 13px 9px; font: inherit; font-size: .95rem; color: var(--color-text-muted); cursor: pointer; white-space: nowrap; }
 .tab-btn:hover { color: var(--color-text); }
