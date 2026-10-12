@@ -14,10 +14,6 @@
     {{ partial "portrait.html" (dict "size" 180 "class" "bio-photo" "eager" true) }}
     <div class="prose bio-text">{{ .Content }}</div>
   </div>
-  <p class="btn-row-inline">
-    <a class="btn btn-solid" href="{{ $cvDownload }}">{{ i18n "btn_download_cv" }}</a>
-    <a class="btn btn-outline" href="{{ $cvView }}">Open in Google Drive</a>
-  </p>
 
   <nav class="toc-inline" aria-label="C.V. sections">
     <a href="#education">Education</a> · <a href="#positions">Research Positions</a> · <a href="#full-cv">Full C.V.</a>
