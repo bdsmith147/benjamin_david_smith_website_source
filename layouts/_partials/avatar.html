@@ -1,0 +1,10 @@
+{{- /* Round portrait for a co-author, or a neutral silhouette. Context: dict "person" "size" */ -}}
+{{- $p := .person -}}
+{{- $size := .size | default 120 -}}
+{{- $img := "" -}}
+{{- with $p.photo }}{{ with resources.Get . }}{{ $img = .Fill (printf "%dx%d Top q82" (mul $size 2) (mul $size 2)) }}{{ end }}{{ end -}}
+{{- if $img -}}
+<img class="avatar" src="{{ $img.RelPermalink }}" width="{{ $size }}" height="{{ $size }}" alt="Portrait of {{ $p.name }}" loading="lazy">
+{{- else -}}
+<svg class="avatar avatar-silhouette" width="{{ $size }}" height="{{ $size }}" viewBox="0 0 120 120" role="img" aria-label="No photo for {{ $p.name }}"><rect width="120" height="120" fill="currentColor" opacity=".12"/><circle cx="60" cy="47" r="21" fill="currentColor" opacity=".38"/><path d="M20 112c3-24 20-38 40-38s37 14 40 38z" fill="currentColor" opacity=".38"/></svg>
+{{- end -}}

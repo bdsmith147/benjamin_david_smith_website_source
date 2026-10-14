@@ -1,0 +1,29 @@
+{{- /* Returns every co-author found in any `authors:` list (except the site owner), merged with
+       data/coauthors.yaml, sorted by group order then last name. Each item is a dict:
+       name, last, url, affiliation, group, photo, rank. */ -}}
+{{- $owner := site.Params.owner.name -}}
+{{- $info := site.Data.coauthors.people | default dict -}}
+{{- $groups := site.Data.coauthors.groups | default slice -}}
+{{- $names := slice -}}
+{{- range where site.RegularPages "Section" "in" (slice "publication" "talk" "software") -}}
+  {{- range .Params.authors }}{{ if and (ne . $owner) (not (in $names .)) }}{{ $names = $names | append . }}{{ end }}{{ end -}}
+{{- end -}}
+{{- $out := slice -}}
+{{- range $names -}}
+  {{- $d := index $info . | default dict -}}
+  {{- $g := $d.group | default "Other collaborators" -}}
+  {{- $rank := len $groups -}}
+  {{- range $i, $name := $groups }}{{ if eq $name $g }}{{ $rank = $i }}{{ end }}{{ end -}}
+  {{- $last := index (last 1 (split . " ")) 0 -}}
+  {{- $out = $out | append (dict
+      "name" .
+      "last" $last
+      "url" ($d.url | default "")
+      "affiliation" ($d.affiliation | default "")
+      "group" $g
+      "photo" ($d.photo | default "")
+      "rank" $rank
+      "key" (printf "%02d-%s" $rank (lower $last))
+  ) -}}
+{{- end -}}
+{{- return sort $out "key" -}}

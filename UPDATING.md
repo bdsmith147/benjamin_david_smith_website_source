@@ -76,7 +76,20 @@ Create `content/software/project-name/index.md` with `title`, `date`, `summary`,
 
 ## Update the Research page
 
-`content/research/index.md` is ordinary Markdown: `## ` starts a section, `- ` starts a bullet, and links to your own pages look like `[Title]({{< relref "/publication/folder-name" >}})`. The starter text was drafted from your C.V.; rewrite it freely. The People section at the bottom links to the co-author list.
+The Research page is built from blocks listed at the top of `content/research/index.md` (between the `---` lines). Each block has:
+
+```yaml
+  - eyebrow: "2024 – 2026 · Postdoctoral Research Associate"   # small label above the heading
+    title: "Compact cold-atom interferometers: Sandia National Laboratories"
+    people: "Supervisor: Dr. Jongmin Lee"
+    text: |
+      A paragraph (or several) describing the work.
+    works:                                    # optional: related items, by folder
+      - "/publication/smith-2026-gmot-atom-interferometer"
+      - "/talk/2025-06-cold-atom-navigation-damop"
+```
+
+Add `current: true` to make a block full-width (used for your current position). Titles and links of the `works` are filled in automatically. The starter text was drafted from your C.V.; rewrite it freely. A People block at the bottom shows a row of co-author portraits and links to the full People page.
 
 ## Update teaching
 
@@ -84,15 +97,20 @@ Courses, the certification, and the student feedback quotes are in `data/teachin
 
 ## People page: please review it
 
-The People page (`/authors/`, linked from the bottom of the Research page rather than the menu) is **built automatically from the co-authors on your papers, talks, and software**. Each name links to that person's website, university page, or LinkedIn, in that order of preference.
+The People page (`/authors/`, linked from the Research page rather than the menu) is a grid of portrait cards, grouped by where you worked together. **Everyone named in an `authors:` list appears automatically**; their details live in `data/coauthors.yaml`:
 
-**These links were found by web search and may point to the wrong person or a stale page. Please check every entry.** They live in `data/coauthors.json`:
-
-```json
-"Bahar Babaei": { "url": "https://...", "type": "website" }
+```yaml
+  "Bahar Babaei":
+    url: "https://www.linkedin.com/in/..."      # website, university page, or LinkedIn; "" for no link
+    affiliation: "Application Scientist, Zero Point Cryogenics"
+    group: "University of Alberta"              # one of the groups listed at the top of the file
+    photo: "images/people/babaei.jpg"           # "" shows a silhouette
+    photo_source: "https://..."                 # where the photo came from
 ```
 
-A name with an empty `url` appears without a link. When you add a paper with a new co-author, they appear on the People page automatically; add their link to `data/coauthors.json` if you want one.
+To add a photo, upload a head-and-shoulders image to `assets/images/people/` and put its path in `photo:`; it's cropped to a circle automatically.
+
+**The links, positions, and photos were found by web search and may be wrong or out of date. Please check every entry.** The photos come from the people's own institutional pages; consider letting your collaborators know, and use whatever photo they prefer.
 
 ## Rename a button or label
 

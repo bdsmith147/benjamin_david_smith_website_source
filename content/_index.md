@@ -10,8 +10,8 @@ teaching:
   highlights:
     - title: "Adjunct Instructor, BYU–Idaho"
       text: "Designed and taught introductory physics and laboratory courses (PHYS 121, 220, and 150) in 2016."
-    - title: "Graduate Teaching and Learning Program"
-      text: "Completed all three levels at the University of Alberta, 2022."
+    - title: "Teaching Certification: University of Alberta"
+      text: "Completed 82 hours of instruction and practicum in pedagogy, course design, and the scholarship of teaching and learning."
     - title: "PHYS 111: Quantum Mechanics and You"
       text: "A course designed for first-year students from across campus, presented at NanoCanada 2022."
       url: "teaching/#phys-111"

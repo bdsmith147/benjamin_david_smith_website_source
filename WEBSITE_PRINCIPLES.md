@@ -20,7 +20,7 @@ A playbook for anyone (human or AI) maintaining this site. Read it before changi
 - `content/publication/`: articles (`journal_article`), submitted work (`preprint`), theses (`thesis`). Shown publicly as **Works**: the list is at `/works/` and each paper at `/works/<folder>/` (`permalinks` in `hugo.yaml`); the internal section name stays `publication`. Templates link to the list with `(site.GetPage "/publication").RelPermalink`, never a hard-coded path.
 - `content/talk/`: presentations (`publication_types: [presentation]`, `talk_type`: invited / contributed / seminar / poster).
 - `content/software/`: tools (`publication_types: [software]`).
-- Structured, repeated data lives in `data/`: `cv.yaml`, `teaching.yaml`, `coauthors.json`, `writings_tabs.yaml`. Templates read these; nothing is typed twice.
+- Structured, repeated data lives in `data/`: `cv.yaml`, `teaching.yaml`, `coauthors.yaml` (co-author links, positions, photos), `writings_tabs.yaml`. Templates read these; nothing is typed twice.
 - The homepage intro (`content/_index.md` `intro:`) and the bio (`content/bio/index.md`) must remain different text.
 
 ## Templates (`layouts/`)
@@ -48,6 +48,8 @@ Hugo already applies the base path to menu URLs, so templates use `.URL` from me
 - **Bio & C.V. page** shows Education and Research Positions, then embeds the full C.V. **from Google Drive** (`cv_drive_id` in `content/bio/index.md`) so it updates when the owner replaces the Drive file. The faith statement on the Faith page works the same way (`document.drive_id` in `content/faith/index.md`). These are deliberate exceptions to "all PDFs live in the repo".
 - **Menu order:** Bio & C.V., Research, Teaching, Faith, Works, Software, Contact (`menu.main` in `hugo.yaml`). People is not in the menu; it is a section of the Research page, and its `parent_page: "/research"` front matter makes the breadcrumb and highlighted tab read Research.
 - **Home page:** the Research and Teaching block headings link to those pages.
+- **Research page** (`layouts/_default/research.html`) renders `blocks` from its front matter as accent-topped cards in a two-column grid (the current position full-width), each listing related works by content path, then a People block with a portrait strip (`_partials/people_strip.html`).
+- **People page** is a portrait grid grouped by `group` in `data/coauthors.yaml`; `_partials/fn/coauthors.html` merges that file with every name in `authors:` lists, and `_partials/avatar.html` draws the photo or a silhouette.
 
 ## Works page contract
 

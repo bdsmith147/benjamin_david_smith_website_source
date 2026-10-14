@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{- /* Research page: one block per position (front matter `blocks`), then a People block. */ -}}
+<article class="page-wrap research-page">
+  {{ partial "breadcrumbs.html" . }}
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
+  </header>
+  {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+  <div class="research-grid">
+    {{- range $i, $b := .Params.blocks }}
+    <section class="highlight research-block{{ if $b.current }} research-block-current{{ end }}" aria-labelledby="rb-{{ $i }}">
+      <p class="eyebrow">{{ $b.eyebrow }}</p>
+      <h2 id="rb-{{ $i }}">{{ $b.title }}</h2>
+      {{- with $b.people }}<p class="cv-org">{{ . }}</p>{{ end }}
+      {{- with $b.text }}<div class="research-text">{{ . | markdownify }}</div>{{ end }}
+      {{- with $b.works }}
+      <h3 class="block-sub">Related works</h3>
+      <ul class="block-list">
+        {{- range . }}{{ with site.GetPage . }}
+        <li><span class="kind-label">{{ i18n (partial "fn/kind.html" .) }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="see-meta">{{ with .Params.journal }}{{ . }}, {{ else }}{{ with .Params.event }}{{ . | truncate 50 }}, {{ end }}{{ end }}{{ .Date.Format "2006" }}</span></li>
+        {{- end }}{{ end }}
+      </ul>
+      {{- end }}
+    </section>
+    {{- end }}
+
+    {{- /* People block: a strip of collaborator portraits linking to the full People page. */ -}}
+    {{- with site.GetPage "/authors" }}
+    <section class="highlight research-block research-block-people" aria-labelledby="rb-people">
+      <p class="eyebrow">Collaborators</p>
+      <h2 id="rb-people"><a class="block-heading-link" href="{{ .RelPermalink }}">People <span aria-hidden="true">→</span></a></h2>
+      {{- with $.Params.people_text }}<p>{{ . }}</p>{{ end }}
+      {{ partial "people_strip.html" (dict "limit" 8) }}
+      <p class="block-links"><a class="btn btn-outline" href="{{ .RelPermalink }}">See all co-authors</a></p>
+    </section>
+    {{- end }}
+  </div>
+</article>
+{{ end }}

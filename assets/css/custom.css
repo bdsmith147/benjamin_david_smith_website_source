@@ -413,3 +413,32 @@ h1 { font-size: 2.1rem; }
 .block-heading-link span { color: var(--color-accent); font-weight: 400; transition: margin-left .18s; margin-left: 2px; }
 .block-heading-link:hover { color: var(--color-accent); }
 .block-heading-link:hover span { margin-left: 6px; }
+
+/* ---- Research page blocks ------------------------------------------------- */
+.research-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 36px; margin-top: 8px; }
+.research-block { display: flex; flex-direction: column; }
+.research-block h2 { margin: 2px 0 2px; font-size: 1.2rem; }
+.research-block .cv-org { margin-bottom: 8px; }
+.research-text p { margin: 0 0 10px; }
+.research-block .block-list { margin-bottom: 4px; }
+.research-block .kind-label { display: inline-block; min-width: 0; margin-right: 4px; }
+.research-block-current { grid-column: 1 / -1; }
+.research-block-current .research-text { max-width: 52rem; font-size: 1.04rem; }
+.research-block-people { grid-column: 1 / -1; }
+.research-block-people .block-links { margin-top: 12px !important; }
+@media (max-width: 860px) { .research-grid { grid-template-columns: 1fr; } }
+
+/* ---- People: portrait grid ------------------------------------------------ */
+.avatar { display: block; border-radius: 50%; object-fit: cover; background: var(--color-surface); box-shadow: 0 0 0 1px var(--color-border); color: var(--color-text-muted); }
+.people-group { margin-bottom: 8px; }
+.people-grid { list-style: none; padding: 0; margin: 0 0 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 24px 20px; }
+.person { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.person-link { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--color-text); }
+.person .avatar { margin-bottom: 10px; transition: box-shadow .18s; }
+.person-link:hover .avatar { box-shadow: 0 0 0 3px var(--color-accent); }
+.person-name { font-weight: 700; line-height: 1.3; }
+.person-link .person-name { color: var(--color-link); }
+.person-link:hover .person-name { text-decoration: underline; }
+.person-affil { font-size: .86rem; color: var(--color-text-muted); line-height: 1.35; margin-top: 2px; }
+.people-strip { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.people-strip-more { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; color: var(--color-text-muted); background: var(--color-surface); box-shadow: 0 0 0 1px var(--color-border); }
