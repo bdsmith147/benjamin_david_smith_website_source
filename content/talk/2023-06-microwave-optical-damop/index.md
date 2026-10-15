@@ -11,3 +11,5 @@ links:
   - name: "Video"
     url: "https://drive.google.com/file/d/14BNCItlnKXZBVPegBWYVAVQx_hHD3GpQ/view"
 ---
+
+The linked video is a practice recording of the talk.
