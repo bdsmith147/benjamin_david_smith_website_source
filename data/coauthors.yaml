@@ -40,8 +40,8 @@ people:
     group: "University of Alberta"
     photo: ""
   "Andal Narayanan":
-    url: "https://wwws.rri.res.in/lamp_andalnarayanan.html"
-    affiliation: "Professor, Raman Research Institute"
+    url: "https://www.linkedin.com/in/andal-narayanan-4316048/"
+    affiliation: "Scientist-in-Residence, Quantum City, University of Calgary"
     group: "University of Alberta"
     photo: ""
   "Logan W. Cooke":
@@ -71,6 +71,7 @@ people:
     photo: ""
 
   "R. Steven Turley":
+    initials: "RST"
     url: "https://physics.byu.edu/faculty/turley/home"
     affiliation: "Professor Emeritus, Brigham Young University"
     group: "Brigham Young University"
