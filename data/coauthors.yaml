@@ -28,18 +28,18 @@ people:
     group: "Sandia National Laboratories"
     photo: ""
   "Cody Bassett":
-    url: ""
-    affiliation: "Sandia National Laboratories"
+    url: "https://www.linkedin.com/in/cody-bassett-18144b180/"
+    affiliation: "Postdoctoral Appointee, Sandia National Laboratories"
     group: "Sandia National Laboratories"
     photo: ""
   "Christian Sanchez":
-    url: ""
-    affiliation: "Sandia National Laboratories"
+    url: "https://www.linkedin.com/in/christian-sanchez-24b990285/"
+    affiliation: "Graduate Student, University of Texas at Austin"
     group: "Sandia National Laboratories"
     photo: ""
   "Roger Ding":
-    url: ""
-    affiliation: "Sandia National Laboratories"
+    url: "https://scholar.google.com/citations?user=mNqvN70AAAAJ&hl=en"
+    affiliation: "Senior Member of Technical Staff, Sandia National Laboratories"
     group: "Sandia National Laboratories"
     photo: ""
 
@@ -95,8 +95,8 @@ people:
     group: "University of Alberta"
     photo: ""
   "Tian Ooi":
-    url: ""
-    affiliation: ""
+    url: "https://scholar.google.com/citations?user=z_UfuxoAAAAJ&hl=en"
+    affiliation: "Graduate Student, University of Colorado Boulder"
     group: "University of Alberta"
     photo: ""
   "Jichu Shi":
