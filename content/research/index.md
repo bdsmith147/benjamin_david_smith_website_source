@@ -37,7 +37,7 @@ blocks:
       - "/software/spinor-gpe"
       - "/publication/smith-2024-phd-dissertation"
 
-  - eyebrow: "2013 – 2015 · Undergraduate research"
+  - eyebrow: "2014 – 2015 · Undergraduate research"
     title: "Extreme-ultraviolet optics: Brigham Young University"
     people: "Supervisors: Professors R. Steven Turley and David D. Allred"
     text: |
