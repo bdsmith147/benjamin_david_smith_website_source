@@ -7,7 +7,8 @@
 #   photo:        image in assets/images/people/ (square-cropped automatically); "" shows a silhouette
 #   photo_source: where the photo came from, for credit and so it can be refreshed
 #
-# Links and photos were found by web search on 2026-10-14. Please check every entry.
+# Links were found by web search on 2026-10-14 or provided by Benjamin. Please check every entry.
+# Photos are off for now: add one only with the person's permission (put it in assets/images/people/).
 
 groups:
   - Sandia National Laboratories
@@ -19,8 +20,7 @@ people:
     url: "https://www.linkedin.com/in/jongmin-lee-b156b28/"
     affiliation: "Sandia National Laboratories"
     group: "Sandia National Laboratories"
-    photo: "images/people/lee.png"
-    photo_source: "https://cquic.unm.edu/people/jongmin-lee/index.html"
+    photo: ""
   "Adrian Orozco":
     url: "https://www.linkedin.com/in/adrian-orozco-12b161100/"
     affiliation: "Sandia National Laboratories"
@@ -31,20 +31,17 @@ people:
     url: "https://sites.google.com/ualberta.ca/ultracold"
     affiliation: "Professor, University of Alberta"
     group: "University of Alberta"
-    photo: "images/people/leblanc.jpg"
-    photo_source: "https://apps.ualberta.ca/directory/person/ljleblan"
+    photo: ""
   "Erhan Saglamyurek":
     url: "https://www.es.net/about/scientific-networking-division-staff/erhan-saglamyurek/"
     affiliation: "Project Scientist, Lawrence Berkeley National Laboratory"
     group: "University of Alberta"
-    photo: "images/people/saglamyurek.jpg"
-    photo_source: "https://www.es.net/about/scientific-networking-division-staff/erhan-saglamyurek/"
+    photo: ""
   "Andal Narayanan":
     url: "https://wwws.rri.res.in/lamp_andalnarayanan.html"
     affiliation: "Professor, Raman Research Institute"
     group: "University of Alberta"
-    photo: "images/people/narayanan.jpg"
-    photo_source: "https://wwws.rri.res.in/lamp_andalnarayanan.html"
+    photo: ""
   "Logan W. Cooke":
     url: "https://czischek-group.uottawa.ca/"
     affiliation: "Postdoctoral Fellow, University of Ottawa"
@@ -75,14 +72,12 @@ people:
     url: "https://physics.byu.edu/faculty/turley/home"
     affiliation: "Professor Emeritus, Brigham Young University"
     group: "Brigham Young University"
-    photo: "images/people/turley.jpg"
-    photo_source: "https://physics.byu.edu/faculty/turley/home"
+    photo: ""
   "David D. Allred":
     url: "https://science.byu.edu/directory/david-allred"
     affiliation: "Professor, Brigham Young University"
     group: "Brigham Young University"
-    photo: "images/people/allred.jpg"
-    photo_source: "https://science.byu.edu/directory/david-allred"
+    photo: ""
   "Joseph B. Muhlestein":
     url: ""
     affiliation: ""

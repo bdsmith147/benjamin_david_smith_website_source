@@ -110,7 +110,7 @@ The People page (`/authors/`, linked from the Research page rather than the menu
 
 To add a photo, upload a head-and-shoulders image to `assets/images/people/` and put its path in `photo:`; it's cropped to a circle automatically.
 
-**The links, positions, and photos were found by web search and may be wrong or out of date. Please check every entry.** The photos come from the people's own institutional pages; consider letting your collaborators know, and use whatever photo they prefer.
+**The links and positions were found by web search (or supplied by you) and may be wrong or out of date. Please check every entry.** Photos are currently off: everyone shows a silhouette. Add a photo only with that person's permission (a photo being visible online doesn't grant the right to reuse it); ideally use one they send you.
 
 ## Rename a button or label
 
