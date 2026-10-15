@@ -422,10 +422,6 @@ h1 { font-size: 2.1rem; }
 .research-text p { margin: 0 0 10px; }
 .research-block .block-list { margin-bottom: 4px; }
 .research-block .kind-label { display: inline-block; min-width: 0; margin-right: 4px; }
-.research-block-current { grid-column: 1 / -1; }
-.research-block-current .research-text { max-width: 52rem; font-size: 1.04rem; }
-.research-block-people { grid-column: 1 / -1; }
-.research-block-people .block-links { margin-top: 12px !important; }
 @media (max-width: 860px) { .research-grid { grid-template-columns: 1fr; } }
 
 /* ---- People: portrait grid ------------------------------------------------ */
@@ -440,3 +436,9 @@ h1 { font-size: 2.1rem; }
 .person-link .person-name { color: var(--color-link); }
 .person-link:hover .person-name { text-decoration: underline; }
 .person-affil { font-size: .86rem; color: var(--color-text-muted); line-height: 1.35; margin-top: 2px; }
+.research-top { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 28px 36px; align-items: start; margin: 8px 0 32px; }
+.research-block-current .research-text { font-size: 1.04rem; }
+.research-block-people { background: var(--color-accent-soft); border-top-color: var(--color-accent); border-radius: 0 0 4px 4px; padding: 14px 20px 18px; align-self: stretch; }
+.research-block-people .block-links { margin-top: 12px !important; }
+.research-block-people .btn-outline { background: var(--color-bg); }
+@media (max-width: 860px) { .research-top { grid-template-columns: 1fr; } }
