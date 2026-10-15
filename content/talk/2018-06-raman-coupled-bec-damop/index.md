@@ -1,7 +1,7 @@
 ---
-title: "Spin-orbit coupling and superfluidity in ultracold quantum gases"
+title: "Quantum Simulation via a Raman-coupled BEC of ⁸⁷Rb"
 date: 2018-06-01
-authors: ["Benjamin D. Smith"]
+authors: ["Benjamin D. Smith", "Logan W. Cooke", "Taras Hrushevskyi", "Lindsay J. LeBlanc"]
 publication_types: ["presentation"]
 talk_type: "poster"
 event: "49th Annual Meeting of the APS Division of Atomic, Molecular and Optical Physics (DAMOP)"
@@ -11,3 +11,5 @@ links:
   - name: "Poster (PDF)"
     url: "files/posters/2018-damop.pdf"
 ---
+
+Also presented at the Quanta CREATE Student Symposium, Calgary, AB, July 2018.

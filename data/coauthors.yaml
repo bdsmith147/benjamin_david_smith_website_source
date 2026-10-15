@@ -27,6 +27,21 @@ people:
     affiliation: "Research Scientist, Space Dynamics Laboratory"
     group: "Sandia National Laboratories"
     photo: ""
+  "Cody Bassett":
+    url: ""
+    affiliation: "Sandia National Laboratories"
+    group: "Sandia National Laboratories"
+    photo: ""
+  "Christian Sanchez":
+    url: ""
+    affiliation: "Sandia National Laboratories"
+    group: "Sandia National Laboratories"
+    photo: ""
+  "Roger Ding":
+    url: ""
+    affiliation: "Sandia National Laboratories"
+    group: "Sandia National Laboratories"
+    photo: ""
 
   "Lindsay J. LeBlanc":
     initials: "LJL"
@@ -67,6 +82,26 @@ people:
   "Anindya Rastogi":
     url: "https://www.linkedin.com/in/anindya-rastogi-16a236139/"
     affiliation: "Senior AMO Scientist, Infleqtion UK"
+    group: "University of Alberta"
+    photo: ""
+  "Arina Tashchilina":
+    url: ""
+    affiliation: "Postdoctoral Fellow, IQOQI Innsbruck"
+    group: "University of Alberta"
+    photo: ""
+  "Joseph Lindon":
+    url: ""
+    affiliation: "Quantum Hardware Engineer, Anyon Systems"
+    group: "University of Alberta"
+    photo: ""
+  "Tian Ooi":
+    url: ""
+    affiliation: ""
+    group: "University of Alberta"
+    photo: ""
+  "Jichu Shi":
+    url: ""
+    affiliation: ""
     group: "University of Alberta"
     photo: ""
 

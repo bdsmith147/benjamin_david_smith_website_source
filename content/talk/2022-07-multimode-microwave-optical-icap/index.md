@@ -1,7 +1,7 @@
 ---
 title: "Multimode microwave-to-optical conversion in warm ⁸⁷Rb atoms"
 date: 2022-07-01
-authors: ["Benjamin D. Smith"]
+authors: ["Benjamin D. Smith", "Bahar Babaei", "Jichu Shi", "Andal Narayanan", "Lindsay J. LeBlanc"]
 publication_types: ["presentation"]
 talk_type: "poster"
 event: "27th International Conference on Atomic Physics (ICAP)"
