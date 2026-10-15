@@ -1,0 +1,25 @@
+# ============================================================================
+# NEW CO-AUTHOR TEMPLATE
+# Anyone listed in a paper's or talk's `authors:` appears on the People page
+# automatically, as plain text. To give them a link and a position, open
+# data/coauthors.yaml and paste the block below under `people:`, next to the
+# others from the same institution.
+#
+# - The name in quotes must match the `authors:` spelling EXACTLY.
+# - Indentation: the name line starts with 2 spaces, the lines under it with 4.
+# - Use spaces, never the Tab key.
+# ============================================================================
+
+  "First M. Last":
+    url: "https://www.linkedin.com/in/..."      # website, university page, LinkedIn, or Google Scholar; "" for none
+    affiliation: "Job Title, Institution"         # current position; "" to leave blank
+    group: "University of Alberta"                # where you worked together; must match a name in `groups:`
+
+# To add a new group (for example a new employer), add a line under `groups:` at the
+# top of data/coauthors.yaml, in the order you want the sections to appear:
+#
+# groups:
+#   - Air Force Research Laboratory
+#   - Sandia National Laboratories
+#   - University of Alberta
+#   - Brigham Young University

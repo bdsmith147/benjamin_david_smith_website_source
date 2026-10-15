@@ -1,0 +1,20 @@
+# ============================================================================
+# NEW RESEARCH BLOCK TEMPLATE
+# Each position on the Research page is one block under `blocks:` at the top of
+# content/research/index.md. Paste this block into that list (newest first) and
+# fill it in. Indentation: "- eyebrow" starts with 2 spaces, the lines under it with 4,
+# and items under `works:` with 6.
+# ============================================================================
+
+  - eyebrow: "2027 – present · Job Title"          # small label above the heading
+    title: "Short topic: Institution Name"
+    people: "Supervisor: Dr. First Last"           # or "Mentor: ..." ; delete the line if not needed
+    current: true                                  # only for your current position (puts it in the top row
+                                                   # beside the People box). Remove it from the previous one.
+    text: |
+      A paragraph describing the work. You can write several paragraphs;
+      just keep every line indented by 6 spaces and leave a blank line between paragraphs.
+    works:                                         # optional: related items, by their folder
+      - "/publication/smith-2027-short-title"
+      - "/talk/2027-06-short-name-damop"
+      - "/software/project-name"

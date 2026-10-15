@@ -1,5 +1,7 @@
 # Updating your website
 
+> **Quick reference:** [CHEATSHEET.md](CHEATSHEET.md) (where everything lives, fixing failed updates). **Blank files to copy:** [templates/](templates/). **Running the preview:** [README.md](README.md).
+
 Everything on the site comes from plain text files in this repository. You can edit them directly on GitHub: open a file, click the pencil icon, make your change, and click **Commit changes**. The site rebuilds and goes live automatically about two minutes later (watch progress under the **Actions** tab).
 
 Text between `---` lines at the top of a file is the page's settings ("front matter"). Keep the quotation marks and indentation as you find them.
