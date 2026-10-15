@@ -19,7 +19,8 @@ people:
     url: "https://www.linkedin.com/in/jongmin-lee-b156b28/"
     affiliation: "Sandia National Laboratories"
     group: "Sandia National Laboratories"
-    photo: ""
+    photo: "images/people/lee.png"
+    photo_source: "https://cquic.unm.edu/people/jongmin-lee/index.html"
   "Adrian Orozco":
     url: "https://www.linkedin.com/in/adrian-orozco-12b161100/"
     affiliation: "Sandia National Laboratories"
