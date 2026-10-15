@@ -39,9 +39,9 @@ blocks:
 
   - eyebrow: "2013 – 2015 · Undergraduate research"
     title: "Extreme-ultraviolet optics: Brigham Young University"
-    people: "Supervisors: Professors R. Steven Turley, David D. Allred, and Branton J. Campbell"
+    people: "Supervisors: Professors R. Steven Turley and David D. Allred"
     text: |
-      As an undergraduate, Benjamin refurbished a discharge light source for the 30.4 nm helium emission line, recommissioned a vacuum-ultraviolet monochromator, and measured the extreme-ultraviolet reflectance of thin-film Y₂O₃ at the Advanced Light Source to extract its optical constants. Earlier, he calculated thermal position distributions of crystal ions in various point symmetries.
+      As an undergraduate, Benjamin refurbished a discharge light source for the 30.4 nm helium emission line, recommissioned a vacuum-ultraviolet monochromator, and measured the extreme-ultraviolet reflectance of thin-film Y₂O₃ at the Advanced Light Source to extract its optical constants.
     works:
       - "/publication/muhlestein-2019-y2o3-optical-constants"
       - "/publication/smith-2015-senior-thesis"
