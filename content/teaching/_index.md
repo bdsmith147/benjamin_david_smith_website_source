@@ -24,5 +24,5 @@ phys111:
     - name: "Microteaching lesson (video)"
       url: "https://drive.google.com/file/d/1O_LabLZxztJaw9BmVta4F0r5pvHM5Jp1/view"
     - name: "NanoCanada 2022 talk (video)"
-      url: "talk/2022-06-quantum-mechanics-and-you-nanocanada/"
+      url: "https://drive.google.com/file/d/1gagYJPmECB9Gb8t_XttLV2mvlymJ9wSj/view"
 ---
