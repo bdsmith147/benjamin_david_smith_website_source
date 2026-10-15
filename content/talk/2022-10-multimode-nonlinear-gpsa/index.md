@@ -12,4 +12,4 @@ links:
     url: "https://drive.google.com/file/d/1Xw3eWVSOctJu4Gw7kxlXhXHB0TnXLZQP/view"
 ---
 
-Awarded first prize for oral presentations at the symposium.
+Awarded first prize for oral presentations at the symposium. The linked video is a practice recording of the talk.
