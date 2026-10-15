@@ -48,7 +48,7 @@ Hugo already applies the base path to menu URLs, so templates use `.URL` from me
 - **Bio & C.V. page** shows Education and Research Positions, then embeds the full C.V. **from Google Drive** (`cv_drive_id` in `content/bio/index.md`) so it updates when the owner replaces the Drive file. The faith statement on the Faith page works the same way (`document.drive_id` in `content/faith/index.md`). These are deliberate exceptions to "all PDFs live in the repo".
 - **Menu order:** Bio & C.V., Research, Teaching, Faith, Works, Software, Contact (`menu.main` in `hugo.yaml`). People is not in the menu; it is a section of the Research page, and its `parent_page: "/research"` front matter makes the breadcrumb and highlighted tab read Research.
 - **Home page:** the Research and Teaching block headings link to those pages.
-- **Research page** (`layouts/_default/research.html`) renders `blocks` from its front matter as accent-topped cards in a two-column grid (the current position full-width), each listing related works by content path, then a People block with a portrait strip (`_partials/people_strip.html`).
+- **Research page** (`layouts/_default/research.html`) renders `blocks` from its front matter as accent-topped cards in a two-column grid (the current position full-width), each listing related works by content path, then a People block linking to the People page.
 - **People page** is a portrait grid grouped by `group` in `data/coauthors.yaml`; `_partials/fn/coauthors.html` merges that file with every name in `authors:` lists, and `_partials/avatar.html` draws the photo or a silhouette.
 
 ## Works page contract

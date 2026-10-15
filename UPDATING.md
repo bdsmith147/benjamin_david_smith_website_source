@@ -89,7 +89,7 @@ The Research page is built from blocks listed at the top of `content/research/in
       - "/talk/2025-06-cold-atom-navigation-damop"
 ```
 
-Add `current: true` to make a block full-width (used for your current position). Titles and links of the `works` are filled in automatically. The starter text was drafted from your C.V.; rewrite it freely. A People block at the bottom shows a row of co-author portraits and links to the full People page.
+Add `current: true` to make a block full-width (used for your current position). Titles and links of the `works` are filled in automatically. The starter text was drafted from your C.V.; rewrite it freely. A People block at the bottom links to the full People page.
 
 ## Update teaching
 

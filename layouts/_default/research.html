@@ -26,13 +26,12 @@
     </section>
     {{- end }}
 
-    {{- /* People block: a strip of collaborator portraits linking to the full People page. */ -}}
+    {{- /* People block: a short note linking to the full People page. */ -}}
     {{- with site.GetPage "/authors" }}
     <section class="highlight research-block research-block-people" aria-labelledby="rb-people">
       <p class="eyebrow">Collaborators</p>
       <h2 id="rb-people"><a class="block-heading-link" href="{{ .RelPermalink }}">People <span aria-hidden="true">→</span></a></h2>
       {{- with $.Params.people_text }}<p>{{ . }}</p>{{ end }}
-      {{ partial "people_strip.html" (dict "limit" 8) }}
       <p class="block-links"><a class="btn btn-outline" href="{{ .RelPermalink }}">See all co-authors</a></p>
     </section>
     {{- end }}
