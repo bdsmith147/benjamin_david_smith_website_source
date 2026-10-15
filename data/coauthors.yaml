@@ -4,7 +4,8 @@
 #   url:          their website, university page, or LinkedIn (leave "" for no link)
 #   affiliation:  current position, shown under the name
 #   group:        where you worked together (one of the `groups` below)
-#   photo:        image in assets/images/people/ (square-cropped automatically); "" shows a silhouette
+#   initials:     optional; shown in the circle when there is no photo (default: first + last initial)
+#   photo:        image in assets/images/people/ (square-cropped automatically); "" shows their initials
 #   photo_source: where the photo came from, for credit and so it can be refreshed
 #
 # Links were found by web search on 2026-10-14 or provided by Benjamin. Please check every entry.
@@ -28,6 +29,7 @@ people:
     photo: ""
 
   "Lindsay J. LeBlanc":
+    initials: "LJL"
     url: "https://sites.google.com/ualberta.ca/ultracold"
     affiliation: "Professor, University of Alberta"
     group: "University of Alberta"

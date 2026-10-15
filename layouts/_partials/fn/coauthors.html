@@ -22,6 +22,7 @@
       "affiliation" ($d.affiliation | default "")
       "group" $g
       "photo" ($d.photo | default "")
+      "initials" ($d.initials | default "")
       "rank" $rank
       "key" (printf "%02d-%s" $rank (lower $last))
   ) -}}
