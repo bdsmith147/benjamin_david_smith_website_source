@@ -1,7 +1,5 @@
 {{- /* Round portrait for a co-author, or a circle with their initials. Context: dict "person" "size"
-       Initials default to first + last initial; `initials:` in data/coauthors.yaml overrides them.
-       The circle colour is picked from a few shades of the site accent, keyed on the name so it
-       stays the same for each person. */ -}}
+       Initials default to first + last initial; `initials:` in data/coauthors.yaml overrides them. Circles use the site accent colour. */ -}}
 {{- $p := .person -}}
 {{- $size := .size | default 120 -}}
 {{- $img := "" -}}
@@ -15,8 +13,7 @@
   {{- $initials = printf "%s%s" (substr (index $parts 0) 0 1) (substr (index (last 1 $parts) 0) 0 1) -}}
 {{- end -}}
 {{- $initials = upper $initials -}}
-{{- $shades := slice "#1d6a73" "#2b7b7a" "#2f6680" "#3d7468" "#45677a" "#226a64" -}}
-{{- $fill := index $shades (mod (hash.FNV32a $p.name) (len $shades)) -}}
+{{- $fill := "#1d6a73" -}}{{/* the site accent (--color-accent) */}}
 {{- $fs := cond (gt (len $initials) 2) 34 42 -}}
 <svg class="avatar avatar-initials" width="{{ $size }}" height="{{ $size }}" viewBox="0 0 120 120" role="img" aria-label="{{ $p.name }}"><circle cx="60" cy="60" r="60" fill="{{ $fill }}"/><text x="60" y="61" text-anchor="middle" dominant-baseline="central" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="{{ $fs }}" font-weight="700" letter-spacing="1" fill="#fff">{{ $initials }}</text></svg>
 {{- end -}}
