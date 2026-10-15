@@ -25,7 +25,8 @@ people:
     url: "https://www.linkedin.com/in/adrian-orozco-12b161100/"
     affiliation: "Sandia National Laboratories"
     group: "Sandia National Laboratories"
-    photo: ""
+    photo: "images/people/orozco.jpg"
+    photo_source: "Provided by Benjamin (public photo)"
 
   "Lindsay J. LeBlanc":
     url: "https://sites.google.com/ualberta.ca/ultracold"
