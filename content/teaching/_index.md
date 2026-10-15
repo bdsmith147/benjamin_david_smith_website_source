@@ -25,4 +25,15 @@ phys111:
       url: "https://drive.google.com/file/d/1O_LabLZxztJaw9BmVta4F0r5pvHM5Jp1/view"
     - name: "NanoCanada 2022 talk (video)"
       url: "https://drive.google.com/file/d/1gagYJPmECB9Gb8t_XttLV2mvlymJ9wSj/view"
+workshop:
+  title: "Quantum Computing Challenges & Exploration"
+  meta: "Workshop instructor, Quanta CREATE Student Symposium, Edmonton, August 2022"
+  description: "An accessible, interactive, and safe learning environment where participants can explore and push themselves in quantum computing topics. The workshop features lab challenges using IBM's open-source Qiskit software package and free interactive textbook. Participants have widely varying levels of experience, so the session is practical and hands-on: partners are paired at random and work through the challenges together."
+  outcomes:
+    - "Identify the Qiskit Textbook as a free resource for personal learning of quantum computation."
+    - "Construct and execute a quantum circuit using Qiskit."
+    - "Recognize several single- and multi-qubit gates and predict their effects on a qubit's state."
+  links:
+    - name: "Workshop materials (GitHub)"
+      url: "https://github.com/bdsmith147/quanta_qiskit_workshop"
 ---

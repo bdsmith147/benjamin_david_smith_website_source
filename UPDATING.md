@@ -93,7 +93,7 @@ Add `current: true` to put a block in the top row (used for your current positio
 
 ## Update teaching
 
-Courses, the certification, and the student feedback quotes are in `data/teaching.yaml`. The PHYS 111 description and links are in `content/teaching/_index.md`. The teaching philosophy statement is `content/teaching/philosophy/index.md`.
+Courses, the certification, and the student feedback quotes are in `data/teaching.yaml`. The PHYS 111 course design and the Qiskit workshop (description, learning outcomes, links) are in `content/teaching/_index.md`. The teaching philosophy statement is `content/teaching/philosophy/index.md`.
 
 ## People page: please review it
 

@@ -50,6 +50,25 @@
     </ul>
   </section>
 
+  {{- with .Params.workshop }}
+  <section class="teach-section" aria-labelledby="workshop" id="workshop-section">
+    <h2 id="workshop">{{ .title }}</h2>
+    <p class="muted">{{ .meta }}</p>
+    <p>{{ .description }}</p>
+    {{- with .outcomes }}
+    <details class="expander">
+      <summary>Learning outcomes</summary>
+      <ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol>
+    </details>
+    {{- end }}
+    <ul class="btn-row">
+      {{- range .links }}
+      <li><a class="btn btn-outline" href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}">{{ .name }}</a></li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
   <section class="teach-section" aria-labelledby="assistant">
     <h2 id="assistant">Teaching Assistant</h2>
     <div class="ta-grid">
