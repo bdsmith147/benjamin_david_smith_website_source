@@ -1,26 +1,23 @@
 {{ define "main" }}
-{{- /* People page: co-authors as a grid of portrait cards, grouped by where Benjamin worked with them.
+{{- /* People page: a directory of co-authors, grouped by where Benjamin worked with them.
        Details come from data/coauthors.yaml; names come from the `authors:` lists automatically. */ -}}
 {{- $people := partial "fn/coauthors.html" . }}
+{{- $groups := slice }}
+{{- range $people }}{{ if not (in $groups .group) }}{{ $groups = $groups | append .group }}{{ end }}{{ end }}
 <div class="page-wrap">
   {{ partial "breadcrumbs.html" . }}
   <header class="list-header">
     <h1>{{ .Title }}</h1>
     {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
   </header>
-  {{- $groups := slice }}
-  {{- range $people }}{{ if not (in $groups .group) }}{{ $groups = $groups | append .group }}{{ end }}{{ end }}
   {{- range $groups }}
   {{- $g := . }}
   <section class="people-group" aria-labelledby="pg-{{ $g | urlize }}">
     <h2 id="pg-{{ $g | urlize }}" class="section-heading">{{ $g }}</h2>
-    <ul class="people-grid">
+    <ul class="people-directory">
       {{- range where $people "group" $g }}
-      <li class="person">
-        {{- if .url }}<a class="person-link" href="{{ .url }}">{{ end }}
-        {{ partial "avatar.html" (dict "person" . "size" 120) }}
-        <span class="person-name">{{ .name }}</span>
-        {{- if .url }}</a>{{ end }}
+      <li>
+        {{- if .url }}<a class="person-name" href="{{ .url }}">{{ .name }}</a>{{ else }}<span class="person-name">{{ .name }}</span>{{ end }}
         {{- with .affiliation }}<span class="person-affil">{{ . }}</span>{{ end }}
       </li>
       {{- end }}

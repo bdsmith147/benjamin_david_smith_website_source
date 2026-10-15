@@ -49,7 +49,7 @@ Hugo already applies the base path to menu URLs, so templates use `.URL` from me
 - **Menu order:** Bio & C.V., Research, Teaching, Faith, Works, Software, Contact (`menu.main` in `hugo.yaml`). People is not in the menu; it is a section of the Research page, and its `parent_page: "/research"` front matter makes the breadcrumb and highlighted tab read Research.
 - **Home page:** the Research and Teaching block headings link to those pages.
 - **Research page** (`layouts/_default/research.html`) renders `blocks` from its front matter as accent-topped cards: the current position (`current: true`) in a top row beside a tinted People block that links to the People page, then the other positions in a two-column grid, each listing related works by content path.
-- **People page** is a portrait grid grouped by `group` in `data/coauthors.yaml`; `_partials/fn/coauthors.html` merges that file with every name in `authors:` lists, and `_partials/avatar.html` draws the photo or a silhouette.
+- **People page** is a text directory (name + position, no images) grouped by `group` in `data/coauthors.yaml`; `_partials/fn/coauthors.html` merges that file with every name in `authors:` lists. Photo and initials-circle versions were tried and dropped (photos for permission reasons, circles as repetitive); both are in the git history.
 
 ## Works page contract
 

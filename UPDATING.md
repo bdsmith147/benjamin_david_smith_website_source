@@ -97,20 +97,16 @@ Courses, the certification, and the student feedback quotes are in `data/teachin
 
 ## People page: please review it
 
-The People page (`/authors/`, linked from the Research page rather than the menu) is a grid of portrait cards, grouped by where you worked together. **Everyone named in an `authors:` list appears automatically**; their details live in `data/coauthors.yaml`:
+The People page (`/authors/`, linked from the Research page rather than the menu) is a directory of your co-authors, grouped by where you worked together, showing each person's name (linked when a link is known) and current position. **Everyone named in an `authors:` list appears automatically**; their details live in `data/coauthors.yaml`:
 
 ```yaml
   "Bahar Babaei":
-    url: "https://www.linkedin.com/in/..."      # website, university page, or LinkedIn; "" for no link
+    url: "https://www.linkedin.com/in/..."      # website, university page, LinkedIn, or Google Scholar; "" for no link
     affiliation: "Application Scientist, Zero Point Cryogenics"
     group: "University of Alberta"              # one of the groups listed at the top of the file
-    photo: "images/people/babaei.jpg"           # "" shows a silhouette
-    photo_source: "https://..."                 # where the photo came from
 ```
 
-To add a photo, upload a head-and-shoulders image to `assets/images/people/` and put its path in `photo:`; it's cropped to a circle automatically.
-
-**The links and positions were found by web search (or supplied by you) and may be wrong or out of date. Please check every entry.** Photos are currently off: everyone shows a silhouette. Add a photo only with that person's permission (a photo being visible online doesn't grant the right to reuse it); ideally use one they send you.
+**Please check the links and positions periodically; people move.**
 
 ## Rename a button or label
 

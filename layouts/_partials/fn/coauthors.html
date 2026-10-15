@@ -1,6 +1,6 @@
 {{- /* Returns every co-author found in any `authors:` list (except the site owner), merged with
        data/coauthors.yaml, sorted by group order then last name. Each item is a dict:
-       name, last, url, affiliation, group, photo, rank. */ -}}
+       name, last, url, affiliation, group, rank. */ -}}
 {{- $owner := site.Params.owner.name -}}
 {{- $info := site.Data.coauthors.people | default dict -}}
 {{- $groups := site.Data.coauthors.groups | default slice -}}
@@ -21,8 +21,6 @@
       "url" ($d.url | default "")
       "affiliation" ($d.affiliation | default "")
       "group" $g
-      "photo" ($d.photo | default "")
-      "initials" ($d.initials | default "")
       "rank" $rank
       "key" (printf "%02d-%s" $rank (lower $last))
   ) -}}

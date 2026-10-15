@@ -425,20 +425,18 @@ h1 { font-size: 2.1rem; }
 @media (max-width: 860px) { .research-grid { grid-template-columns: 1fr; } }
 
 /* ---- People: portrait grid ------------------------------------------------ */
-.avatar { display: block; border-radius: 50%; object-fit: cover; background: var(--color-surface); box-shadow: 0 0 0 1px var(--color-border); color: var(--color-text-muted); }
 .people-group { margin-bottom: 8px; }
-.people-grid { list-style: none; padding: 0; margin: 0 0 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 24px 20px; }
-.person { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.person-link { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--color-text); }
-.person .avatar { margin-bottom: 10px; transition: box-shadow .18s; }
-.person-link:hover .avatar { box-shadow: 0 0 0 3px var(--color-accent); }
-.person-name { font-weight: 700; line-height: 1.3; }
-.person-link .person-name { color: var(--color-link); }
-.person-link:hover .person-name { text-decoration: underline; }
-.person-affil { font-size: .86rem; color: var(--color-text-muted); line-height: 1.35; margin-top: 2px; }
 .research-top { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 28px 36px; align-items: start; margin: 8px 0 32px; }
 .research-block-current .research-text { font-size: 1.04rem; }
 .research-block-people { background: var(--color-accent-soft); border-top-color: var(--color-accent); border-radius: 0 0 4px 4px; padding: 14px 20px 18px; align-self: stretch; }
 .research-block-people .block-links { margin-top: 12px !important; }
 .research-block-people .btn-outline { background: var(--color-bg); }
 @media (max-width: 860px) { .research-top { grid-template-columns: 1fr; } }
+
+/* ---- People: directory ---------------------------------------------------- */
+.people-directory { list-style: none; padding: 0; margin: 0 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0 32px; }
+.people-directory li { padding: 9px 0 10px; border-bottom: 1px dotted var(--color-border); }
+.person-name { display: block; font-weight: 700; line-height: 1.3; }
+a.person-name { text-decoration: none; }
+a.person-name:hover { text-decoration: underline; }
+.person-affil { display: block; font-size: .88rem; color: var(--color-text-muted); line-height: 1.35; margin-top: 2px; }

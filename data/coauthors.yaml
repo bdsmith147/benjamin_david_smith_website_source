@@ -4,12 +4,8 @@
 #   url:          their website, university page, or LinkedIn (leave "" for no link)
 #   affiliation:  current position, shown under the name
 #   group:        where you worked together (one of the `groups` below)
-#   initials:     optional; shown in the circle when there is no photo (default: first + last initial)
-#   photo:        image in assets/images/people/ (square-cropped automatically); "" shows their initials
-#   photo_source: where the photo came from, for credit and so it can be refreshed
 #
 # Links were found by web search on 2026-10-14 or provided by Benjamin. Please check every entry.
-# Photos are off for now: add one only with the person's permission (put it in assets/images/people/).
 
 groups:
   - Sandia National Laboratories
@@ -21,118 +17,93 @@ people:
     url: "https://www.linkedin.com/in/jongmin-lee-b156b28/"
     affiliation: "Principal Member of Technical Staff, Sandia National Laboratories"
     group: "Sandia National Laboratories"
-    photo: ""
   "Adrian Orozco":
     url: "https://www.linkedin.com/in/adrian-orozco-12b161100/"
     affiliation: "Research Scientist, Space Dynamics Laboratory"
     group: "Sandia National Laboratories"
-    photo: ""
   "Cody Bassett":
     url: "https://www.linkedin.com/in/cody-bassett-18144b180/"
     affiliation: "Postdoctoral Appointee, Sandia National Laboratories"
     group: "Sandia National Laboratories"
-    photo: ""
   "Christian Sanchez":
     url: "https://www.linkedin.com/in/christian-sanchez-24b990285/"
     affiliation: "Graduate Student, University of Texas at Austin"
     group: "Sandia National Laboratories"
-    photo: ""
   "Roger Ding":
     url: "https://scholar.google.com/citations?user=mNqvN70AAAAJ&hl=en"
     affiliation: "Senior Member of Technical Staff, Sandia National Laboratories"
     group: "Sandia National Laboratories"
-    photo: ""
 
   "Lindsay J. LeBlanc":
-    initials: "LJL"
     url: "https://sites.google.com/ualberta.ca/ultracold"
     affiliation: "Professor, University of Alberta"
     group: "University of Alberta"
-    photo: ""
   "Erhan Saglamyurek":
     url: "https://www.es.net/about/scientific-networking-division-staff/erhan-saglamyurek/"
     affiliation: "Project Scientist, Lawrence Berkeley National Laboratory"
     group: "University of Alberta"
-    photo: ""
   "Andal Narayanan":
     url: "https://www.linkedin.com/in/andal-narayanan-4316048/"
     affiliation: "Scientist-in-Residence, Quantum City, University of Calgary"
     group: "University of Alberta"
-    photo: ""
   "Logan W. Cooke":
     url: "https://www.linkedin.com/in/logan-cooke-41029117a/"
     affiliation: "Postdoctoral Fellow, University of Ottawa"
     group: "University of Alberta"
-    photo: ""
   "Bahar Babaei":
     url: "https://www.linkedin.com/in/bahar-babaei-059443146/"
     affiliation: "Application Scientist, Zero Point Cryogenics"
     group: "University of Alberta"
-    photo: ""
   "Andrei Tretiakov":
     url: "https://www.linkedin.com/in/andrei-tretiakov-mipt/"
     affiliation: "Postdoctoral Fellow, UCLA"
     group: "University of Alberta"
-    photo: ""
   "Taras Hrushevskyi":
     url: "https://www.linkedin.com/in/taras-hrushevskyi-445b1626b/"
     affiliation: "Research Associate, University of Calgary"
     group: "University of Alberta"
-    photo: ""
   "Anindya Rastogi":
     url: "https://www.linkedin.com/in/anindya-rastogi-16a236139/"
     affiliation: "Senior AMO Scientist, Infleqtion UK"
     group: "University of Alberta"
-    photo: ""
   "Arina Tashchilina":
     url: "https://iqoqi.at/en/people/staff/staff/arina-tashchilina"
     affiliation: "Postdoctoral Researcher, IQOQI Innsbruck"
     group: "University of Alberta"
-    photo: ""
   "Joseph Lindon":
     url: "https://www.linkedin.com/in/josephlindon/"
     affiliation: "Quantum Hardware Engineer, Anyon Systems"
     group: "University of Alberta"
-    photo: ""
   "Tian Ooi":
     url: "https://scholar.google.com/citations?user=z_UfuxoAAAAJ&hl=en"
     affiliation: "Graduate Student, University of Colorado Boulder"
     group: "University of Alberta"
-    photo: ""
   "Jichu Shi":
     url: ""
     affiliation: ""
     group: "University of Alberta"
-    photo: ""
 
   "R. Steven Turley":
-    initials: "RST"
     url: "https://physics.byu.edu/faculty/turley/home"
     affiliation: "Professor Emeritus, Brigham Young University"
     group: "Brigham Young University"
-    photo: ""
   "David D. Allred":
     url: "https://physics.byu.edu/faculty/allred/publications"
     affiliation: "Professor (retired), Brigham Young University"
     group: "Brigham Young University"
-    photo: ""
   "Joseph B. Muhlestein":
     url: ""
     affiliation: ""
     group: "Brigham Young University"
-    photo: ""
   "Margaret Miles":
     url: ""
     affiliation: ""
     group: "Brigham Young University"
-    photo: ""
   "Stephanie M. Thomas":
     url: "https://www.linkedin.com/in/sthomas1991/"
     affiliation: "Control Room Shift Supervisor, Spallation Neutron Source, Oak Ridge National Laboratory"
     group: "Brigham Young University"
-    photo: ""
   "Anthony Willey":
     url: ""
     affiliation: ""
     group: "Brigham Young University"
-    photo: ""
