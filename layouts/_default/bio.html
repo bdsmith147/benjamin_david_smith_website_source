@@ -16,7 +16,7 @@
   </div>
 
   <nav class="toc-inline" aria-label="C.V. sections">
-    <a href="#education">Education</a> · <a href="#positions">Research Positions</a> · <a href="#teaching-experience">Teaching Experience</a> · <a href="#full-cv">Full C.V.</a>
+    <a href="#education">Education</a> · <a href="#positions">Research Positions</a> · <a href="#full-cv">Full C.V.</a>
   </nav>
 
   <section class="cv-section" aria-labelledby="education">
@@ -46,44 +46,7 @@
       </div>
     </div>
     {{- end }}
-    <p class="area-more"><a class="inline-link" href="{{ (site.GetPage "/publication").RelPermalink }}">Works →</a></p>
-  </section>
-
-  {{- /* Teaching Experience: C.V.-style summary drawn from data/teaching.yaml (the Teaching page has the details). */ -}}
-  {{- $t := site.Data.teaching }}
-  <section class="cv-section" aria-labelledby="teaching-experience">
-    <h2 id="teaching-experience">Teaching Experience</h2>
-    {{- with $t.adjunct }}
-    <div class="cv-entry">
-      <p class="cv-when">{{ .dates }}</p>
-      <div class="cv-what">
-        <h3>{{ .role }}</h3>
-        <p class="cv-org">{{ .org }}</p>
-        <ul>{{ range .courses }}<li>{{ .code }}: {{ .name }} ({{ .term }})</li>{{ end }}</ul>
-      </div>
-    </div>
-    {{- end }}
-    {{- range $t.assistant }}
-    <div class="cv-entry">
-      <p class="cv-when">{{ .dates }}</p>
-      <div class="cv-what">
-        <h3>Teaching Assistant</h3>
-        <p class="cv-org">{{ .org }}</p>
-        <ul>{{ range .courses }}<li>{{ . }}</li>{{ end }}</ul>
-      </div>
-    </div>
-    {{- end }}
-    {{- with $t.gtlp }}
-    <div class="cv-entry">
-      <p class="cv-when">{{ .year }}</p>
-      <div class="cv-what">
-        <h3>{{ .name }}</h3>
-        <p class="cv-org">{{ .org }}</p>
-        <ul>{{ range .levels }}<li>{{ . }}</li>{{ end }}</ul>
-      </div>
-    </div>
-    {{- end }}
-    <p class="area-more"><a class="inline-link" href="{{ "teaching/" | relURL }}">Teaching page: courses, PHYS 111, workshop, and student feedback →</a></p>
+    <p class="area-more"><a class="inline-link" href="{{ "teaching/" | relURL }}">Teaching experience →</a> <a class="inline-link" href="{{ (site.GetPage "/publication").RelPermalink }}">Works →</a></p>
   </section>
 
   <section class="cv-section" aria-labelledby="full-cv">

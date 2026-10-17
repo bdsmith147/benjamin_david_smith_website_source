@@ -15,7 +15,7 @@ For step-by-step instructions, see [UPDATING.md](UPDATING.md). Blank files to co
 | Full C.V. (PDF) | **Google Drive**: upload a new version of the same file |
 | Research page blocks | `content/research/index.md` (top section) |
 | People page (links, positions, groups) | `data/coauthors.yaml` |
-| Teaching: courses, certification, student quotes (also feeds Teaching Experience on the Bio page) | `data/teaching.yaml` |
+| Teaching: courses, certification, student quotes | `data/teaching.yaml` |
 | Teaching: PHYS 111 and Qiskit workshop | `content/teaching/_index.md` |
 | Teaching philosophy | `content/teaching/philosophy/index.md` |
 | Faith page intro | `content/faith/index.md` |
