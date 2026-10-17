@@ -1,10 +1,30 @@
 {{ define "main" }}
 {{- $cv := site.Data.cv }}
+{{- $t := site.Data.teaching }}
 {{- /* The full C.V. comes from Google Drive so it stays current when the Drive file is updated. */ -}}
 {{- $id := .Params.cv_drive_id }}
 {{- $cvView := printf "https://drive.google.com/file/d/%s/view" $id }}
 {{- $cvDownload := printf "https://drive.google.com/uc?export=download&id=%s" $id }}
 {{- $cvEmbed := printf "https://drive.google.com/file/d/%s/preview" $id }}
+
+{{- /* Positions: a resume-style list combining research positions (data/cv.yaml) and teaching
+       positions (data/teaching.yaml), newest first. Sorted by the first and last year in each date. */ -}}
+{{- $positions := slice }}
+{{- range $cv.positions }}
+  {{- $yrs := findRE `\d{4}` .years }}
+  {{- $end := cond (strings.Contains (lower .years) "present") "9999" (index (last 1 $yrs) 0) }}
+  {{- $positions = $positions | append (dict "when" .years "role" .role "org" .org "key" (printf "%s-%s" (index $yrs 0) $end)) }}
+{{- end }}
+{{- with $t.adjunct }}
+  {{- $yrs := findRE `\d{4}` .dates }}
+  {{- $positions = $positions | append (dict "when" (index $yrs 0) "role" .role "org" .org "key" (printf "%s-%s" (index $yrs 0) (index (last 1 $yrs) 0))) }}
+{{- end }}
+{{- range $t.assistant }}
+  {{- $yrs := findRE `\d{4}` .dates }}
+  {{- $positions = $positions | append (dict "when" .dates "role" "Teaching Assistant" "org" .org "key" (printf "%s-%s" (index $yrs 0) (index (last 1 $yrs) 0))) }}
+{{- end }}
+{{- $positions = sort $positions "key" "desc" }}
+
 <article class="page-wrap bio-page">
   {{ partial "breadcrumbs.html" . }}
   <header class="list-header">
@@ -15,8 +35,15 @@
     <div class="prose bio-text">{{ .Content }}</div>
   </div>
 
-  <nav class="toc-inline" aria-label="C.V. sections">
-    <a href="#education">Education</a> · <a href="#positions">Research Positions</a> · <a href="#full-cv">Full C.V.</a>
+  <nav class="bio-links" aria-label="More about Benjamin's work">
+    <a class="tile" href="{{ "research/" | relURL }}">
+      <span class="tile-title">Research <span aria-hidden="true">→</span></span>
+      <span class="tile-text">Current and past projects, related works, and collaborators.</span>
+    </a>
+    <a class="tile" href="{{ "teaching/" | relURL }}">
+      <span class="tile-title">Teaching <span aria-hidden="true">→</span></span>
+      <span class="tile-text">Courses, certification, course design, and student feedback.</span>
+    </a>
   </nav>
 
   <section class="cv-section" aria-labelledby="education">
@@ -35,18 +62,12 @@
   </section>
 
   <section class="cv-section" aria-labelledby="positions">
-    <h2 id="positions">Research Positions</h2>
-    {{- range $cv.positions }}
-    <div class="cv-entry">
-      <p class="cv-when">{{ .years }}</p>
-      <div class="cv-what">
-        <h3>{{ .role }}</h3>
-        <p class="cv-org">{{ .org }}{{ with .mentor }} · {{ . }}{{ end }}</p>
-        <ul>{{ range .notes }}<li>{{ . }}</li>{{ end }}</ul>
-      </div>
-    </div>
-    {{- end }}
-    <p class="area-more"><a class="inline-link" href="{{ "teaching/" | relURL }}">Teaching experience →</a> <a class="inline-link" href="{{ (site.GetPage "/publication").RelPermalink }}">Works →</a></p>
+    <h2 id="positions">Positions</h2>
+    <ul class="cv-list positions-list">
+      {{- range $positions }}
+      <li><span class="cv-year">{{ .when }}</span> <span><strong>{{ .role }}</strong>, <span class="muted">{{ .org }}</span></span></li>
+      {{- end }}
+    </ul>
   </section>
 
   <section class="cv-section" aria-labelledby="full-cv">
