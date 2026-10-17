@@ -9,11 +9,11 @@ research:
 teaching:
   highlights:
     - title: "Adjunct Instructor, BYU–Idaho"
-      text: "Designed and taught introductory physics and laboratory courses (PHYS 121, 220, and 150) in 2016."
+      text: "Primary instructor for 67 students in introductory physics and laboratory courses (PHYS 121, 220, and 150) in 2016."
     - title: "Teaching Certification: University of Alberta"
       text: "Completed 82 hours of instruction and practicum in pedagogy, course design, and the scholarship of teaching and learning."
     - title: "PHYS 111: Quantum Mechanics and You"
-      text: "A course designed for first-year students from across campus, presented at NanoCanada 2022."
+      text: "A course concept designed for first-year students from across campus, presented at NanoCanada Conference 2022."
       url: "teaching/#phys-111"
   quote: "Your love for us and the material was inspiring. Thank you for all you did."
   quote_source: "PHYS 121 student, BYU–Idaho"
