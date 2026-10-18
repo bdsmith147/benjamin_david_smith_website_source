@@ -74,4 +74,4 @@ Skip link; one H1 per page; visible `:focus-visible` outlines; labeled form cont
 - Don't put process notes in visible text; use `<!-- … -->` comments in Markdown.
 - People-page links are guessed: see `UPDATING.md`.
 - Videos are linked externally (Google Drive / YouTube); keep repository files under 100 MB.
-- If the site moves to the custom domain (benjamindavidsmith.com), change `baseURL` in `hugo.yaml`, add `static/CNAME`, and update the URLs in `static/llms.txt`. The `aliases:` on the Bio, Teaching, Works, and Software pages already redirect the old site's paths (`/about/main/`, `/teaching/main/`, `/research/...`).
+- The site is served at the custom domain `https://www.benjamindavidsmith.com/` (`baseURL` in `hugo.yaml`, `static/CNAME`, and Settings → Pages → Custom domain on GitHub). The `aliases:` on the Bio, Teaching, Works, and Software pages redirect the old site's paths (`/about/main/`, `/teaching/main/`, `/research/...`), and copies of the two old PDFs live at their old addresses under `static/teaching/prof_dev/`.

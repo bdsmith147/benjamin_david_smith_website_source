@@ -1,4 +1,4 @@
-baseURL: "https://bdsmith147.github.io/benjamin_david_smith_website_source/"  # MUST end with slash
+baseURL: "https://www.benjamindavidsmith.com/"  # final public address; MUST end with a slash
 title: "Benjamin D. Smith"
 languageCode: en-us
 enableRobotsTXT: true

@@ -59,9 +59,9 @@ hugo server --source "C:\Users\bensm\Documents\Benjamin\_Career\Website 2026\ben
 
 When it says `Web Server is available at ...`, open the address it prints in your browser:
 
-<http://localhost:1313/benjamin_david_smith_website_source/>
+<http://localhost:1313/>
 
-(The `/benjamin_david_smith_website_source/` part matches where the site will live on GitHub Pages. If the site moves to a custom domain, it disappears and the address becomes `http://localhost:1313/`.)
+(The site lives at the root of its own domain, `https://www.benjamindavidsmith.com/`, so the local preview is at the root too.)
 
 ### 3. Using the preview server
 
@@ -90,7 +90,7 @@ Every commit to the `main` branch triggers the workflow in `.github/workflows/de
 
 **One-time setup** (before the first publish): in the repository on GitHub, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
 
-The public address is set by `baseURL` in `hugo.yaml` (currently `https://bdsmith147.github.io/benjamin_david_smith_website_source/`).
+The public address is set by `baseURL` in `hugo.yaml`: `https://www.benjamindavidsmith.com/`. The custom domain itself is attached in the repository's **Settings → Pages → Custom domain** (the `static/CNAME` file records it too). The domain's DNS points at GitHub: `www` is a CNAME to `bdsmith147.github.io`, and the bare domain has GitHub's four A records (185.199.108–111.153).
 
 ## What's in this repository
 
