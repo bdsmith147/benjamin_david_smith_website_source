@@ -9,6 +9,9 @@ outputs:
 
 params:
   description: "Benjamin D. Smith is an experimental atomic and quantum physicist working on the next generation of quantum sensors."
+  # Search-engine ownership checks: paste only the content="..." value Google / Bing give you.
+  google_site_verification: ""
+  bing_site_verification: ""
   owner:
     name: "Benjamin D. Smith"
     first_name: "Benjamin"

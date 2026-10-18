@@ -10,6 +10,10 @@
 {{- else }}{{ if and .IsPage .Content }}{{ $desc = .Summary | plainify | htmlUnescape | truncate 220 }}{{ end }}{{ end }}{{ end }}{{ end }}
 <meta name="description" content="{{ $desc }}">
 <meta name="author" content="{{ $owner.name }}">
+{{- with site.Params.google_site_verification }}
+<meta name="google-site-verification" content="{{ . }}">{{ end }}
+{{- with site.Params.bing_site_verification }}
+<meta name="msvalidate.01" content="{{ . }}">{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:title" content="{{ $title }}">
