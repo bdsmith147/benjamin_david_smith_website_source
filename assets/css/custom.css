@@ -191,13 +191,23 @@ main:focus { outline: none; }
 .toolbar-right { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .pub-empty { color: var(--color-text-muted); padding: 16px 0; }
 
+/* Filters panel: always open on wide screens (the toggle bar is hidden); on phones it folds
+   into a "Search & filter" bar so the list of works shows first. */
+.filter-toggle { display: none; }
+.pub-filters > .filter-body { display: block; }
 @media (max-width: 860px) {
-  .pub-layout { grid-template-columns: 1fr; gap: 14px; }
-  .pub-sidebar { position: static; max-height: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
-  .pub-sidebar > .filter-group:first-child { grid-column: 1 / -1; }
-  #pub-reset { grid-column: 1 / -1; justify-self: start; }
+  .pub-layout { grid-template-columns: 1fr; gap: 12px; }
+  .pub-tabs { position: static; flex-wrap: wrap; overflow-x: visible; box-shadow: none; margin-bottom: 10px; }
+  .tab-btn { padding: 8px 10px 6px; }
+  .pub-sidebar { position: static; max-height: none; padding: 0; overflow: visible; }
+  .filter-toggle { display: flex; align-items: center; justify-content: space-between; cursor: pointer; list-style: none; padding: 10px 14px; font-weight: 700; font-size: .92rem; color: var(--color-text); }
+  .filter-toggle::-webkit-details-marker { display: none; }
+  .filter-toggle::after { content: ""; width: 8px; height: 8px; border-right: 2px solid var(--color-accent); border-bottom: 2px solid var(--color-accent); transform: rotate(45deg); margin: -4px 4px 0 12px; transition: transform .18s; }
+  .pub-filters[open] > .filter-toggle::after { transform: rotate(-135deg); margin-top: 4px; }
+  .pub-filters[open] > .filter-toggle { border-bottom: 1px solid var(--color-border); }
+  .pub-filters > .filter-body { padding: 12px 14px 14px; }
+  .year-list { max-height: none; overflow: visible; display: flex; flex-wrap: wrap; gap: 2px 16px; }
 }
-@media (max-width: 520px) { .pub-sidebar { grid-template-columns: 1fr; } }
 
 /* ---- Item detail pages ---------------------------------------------------- */
 .item-page { max-width: 52rem; }

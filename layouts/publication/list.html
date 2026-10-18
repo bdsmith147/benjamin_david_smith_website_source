@@ -45,6 +45,9 @@
 
   <div class="pub-layout">
     <aside class="pub-sidebar" aria-label="Filters">
+      <details class="pub-filters" open>
+      <summary class="filter-toggle">Search &amp; filter</summary>
+      <div class="filter-body">
       <div class="filter-group">
         <label for="pub-search" class="filter-label">{{ i18n "label_search" }}</label>
         <input id="pub-search" type="search" placeholder="{{ i18n "label_filter_placeholder" }}" autocomplete="off">
@@ -69,6 +72,8 @@
         </div>
       </fieldset>
       <button type="button" id="pub-reset" class="btn btn-outline btn-small">{{ i18n "btn_reset" }}</button>
+      </div>
+      </details>
     </aside>
 
     <section class="pub-results" aria-label="Results">
@@ -110,6 +115,9 @@
   var items = Array.prototype.slice.call(document.querySelectorAll('.pub-item'));
   var countEl = document.querySelector('.result-count');
   var emptyEl = document.querySelector('.pub-empty');
+  var toggleEl = document.querySelector(".filter-toggle");
+  var toggleLabel = toggleEl.textContent;
+  function activeFilterCount() { return (state.q ? 1 : 0) + state.years.length + state.sub.length; }
   var search = document.getElementById('pub-search');
   var sortSel = document.getElementById('pub-sort');
   var yearBoxes = document.querySelectorAll('input[name=year]');
@@ -143,6 +151,8 @@
       btn.setAttribute('aria-selected', on ? 'true' : 'false');
     });
     subGroups.forEach(function (g) { g.hidden = g.dataset.forTab !== state.tab; });
+    var n = activeFilterCount();
+    toggleEl.textContent = toggleLabel + (n ? " (" + n + " active)" : "");
 
     var sorted = items.slice().sort(function (a, b) {
       var da = byId[a.dataset.id], db = byId[b.dataset.id];
@@ -217,6 +227,13 @@
 
   fromHash();
   apply();
+
+  // On phones the filters fold into a "Search & filter" bar; on wider screens they stay open.
+  var filters = document.querySelector(".pub-filters");
+  var narrow = window.matchMedia("(max-width: 860px)");
+  function syncFilters() { filters.open = !narrow.matches || activeFilterCount() > 0; }
+  syncFilters();
+  if (narrow.addEventListener) narrow.addEventListener("change", syncFilters);
 })();
 </script>
 {{ end }}
