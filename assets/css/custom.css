@@ -443,6 +443,7 @@ a.person-name:hover { text-decoration: underline; }
 
 /* ---- Bio: links to Research and Teaching, and the positions list --------- */
 .bio-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 24px 0 8px; border-top: 1px solid var(--color-text); border-bottom: 1px solid var(--color-border); }
-.bio-links .tile + .tile { border-left: 1px solid var(--color-border); }
+.bio-links .tile:nth-child(even) { border-left: 1px solid var(--color-border); }
+.bio-links .tile:nth-child(n+3) { border-top: 1px solid var(--color-border); }
 .positions-list li { padding: 6px 0; }
-@media (max-width: 560px) { .bio-links { grid-template-columns: 1fr; } .bio-links .tile + .tile { border-left: 0; border-top: 1px solid var(--color-border); } }
+@media (max-width: 560px) { .bio-links { grid-template-columns: 1fr; } .bio-links .tile:nth-child(even) { border-left: 0; } .bio-links .tile + .tile { border-top: 1px solid var(--color-border); } }
