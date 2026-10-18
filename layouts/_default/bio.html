@@ -13,15 +13,15 @@
 {{- range $cv.positions }}
   {{- $yrs := findRE `\d{4}` .years }}
   {{- $end := cond (strings.Contains (lower .years) "present") "9999" (index (last 1 $yrs) 0) }}
-  {{- $positions = $positions | append (dict "when" .years "role" .role "org" .org "key" (printf "%s-%s" (index $yrs 0) $end)) }}
+  {{- $positions = $positions | append (dict "when" .years "role" .role "org" .org "place" (.place | default "") "key" (printf "%s-%s" (index $yrs 0) $end)) }}
 {{- end }}
 {{- with $t.adjunct }}
   {{- $yrs := findRE `\d{4}` .dates }}
-  {{- $positions = $positions | append (dict "when" (index $yrs 0) "role" .role "org" .org "key" (printf "%s-%s" (index $yrs 0) (index (last 1 $yrs) 0))) }}
+  {{- $positions = $positions | append (dict "when" (index $yrs 0) "role" .role "org" .org "place" (.place | default "") "key" (printf "%s-%s" (index $yrs 0) (index (last 1 $yrs) 0))) }}
 {{- end }}
 {{- range $t.assistant }}
   {{- $yrs := findRE `\d{4}` .dates }}
-  {{- $positions = $positions | append (dict "when" .dates "role" "Teaching Assistant" "org" .org "key" (printf "%s-%s" (index $yrs 0) (index (last 1 $yrs) 0))) }}
+  {{- $positions = $positions | append (dict "when" .dates "role" "Teaching Assistant" "org" .org "place" (.place | default "") "key" (printf "%s-%s" (index $yrs 0) (index (last 1 $yrs) 0))) }}
 {{- end }}
 {{- $positions = sort $positions "key" "desc" }}
 
@@ -73,7 +73,7 @@
     <h2 id="positions">Positions</h2>
     <ul class="cv-list positions-list">
       {{- range $positions }}
-      <li><span class="cv-year">{{ .when }}</span> <span><strong>{{ .role }}</strong>, <span class="muted">{{ .org }}</span></span></li>
+      <li><span class="cv-year">{{ .when }}</span> <span><strong>{{ .role }}</strong>, {{ .org }}{{ with .place }} <span class="muted">· {{ . }}</span>{{ end }}</span></li>
       {{- end }}
     </ul>
   </section>

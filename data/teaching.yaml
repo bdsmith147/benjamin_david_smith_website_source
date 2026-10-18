@@ -4,7 +4,7 @@
 adjunct:
   role: "Adjunct Instructor"
   org: "Brigham Young University–Idaho, Department of Physics"
-  place: "Rexburg, Idaho"
+  place: "Rexburg, ID, USA"
   dates: "January – July 2016"
   summary: "Responsible for designing and implementing the course layouts, instruction, and assessments for several classes of 20–30 students each."
   courses:
@@ -26,6 +26,7 @@ adjunct:
 
 assistant:
   - org: "University of Alberta"
+    place: "Edmonton, AB, Canada"
     dates: "2016 – 2023"
     courses:
       - "PHYS 295: Experimental Physics I (2023 & 2017)"
@@ -33,6 +34,7 @@ assistant:
       - "PHYS 372: Quantum Mechanics A (2017)"
       - "PHYS 130: Wave Motion, Optics, and Sound (2016)"
   - org: "Brigham Young University"
+    place: "Provo, UT, USA"
     dates: "2014 – 2015"
     courses:
       - "PHYS 245: Experiments in Contemporary Physics (2015)"

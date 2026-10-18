@@ -22,18 +22,21 @@ positions:
   - years: "2026 – present"
     role: "NRC Research Fellow"
     org: "Air Force Research Laboratory"
+    place: "Albuquerque, NM, USA"
     notes:
       - "Experimental atom interferometry with Bose-Einstein condensates in fiber Fabry-Perot microcavities."
     mentor: "Mentor: Dr. Spencer Olson"
   - years: "2024 – 2026"
     role: "Postdoctoral Research Associate"
     org: "Sandia National Laboratories"
+    place: "Albuquerque, NM, USA"
     notes:
       - "Experimental quantum-enhanced gravity and acceleration sensing using cold atom matter-wave interferometry, with applications toward practical inertial guidance and navigation."
     mentor: "Supervisor: Dr. Jongmin Lee"
   - years: "2016 – 2024"
     role: "Graduate Research Assistant"
     org: "University of Alberta, Department of Physics"
+    place: "Edmonton, AB, Canada"
     notes:
       - "Upgraded a warm-atom microwave cavity system for experiments in nonlinear optics, microwave-to-optical conversion, and magnetometry."
       - "Developed Spinor-GPE, an open-source Python package for GPU-accelerated solutions to the two-component nonlinear Schrödinger equation, with applications for spin-orbit coupled Bose-Einstein condensates."
@@ -42,6 +45,7 @@ positions:
   - years: "2014 – 2015"
     role: "Undergraduate Research Assistant"
     org: "Brigham Young University, Department of Physics and Astronomy"
+    place: "Provo, UT, USA"
     notes:
       - "Refurbished a discharge light source for generating the 30.4 nm extreme ultraviolet (EUV) helium emission line."
       - "Recommissioned a monochromator for vacuum ultraviolet reflectance measurements of thin film aluminum."
@@ -50,13 +54,15 @@ positions:
   - years: "2013 – 2014"
     role: "Undergraduate Research Assistant"
     org: "Brigham Young University, Department of Physics and Astronomy"
+    place: "Provo, UT, USA"
     notes:
       - "Calculated and tabulated thermal position distributions of crystal ions in various point symmetries."
     mentor: "Supervisor: Professor Branton J. Campbell"
 
   - years: "2015"
     role: "Product Specialist"
-    org: "Qualtrics, LLC, Provo, UT"
+    org: "Qualtrics, LLC"
+    place: "Provo, UT, USA"
     notes:
       - "Instructed 20–30 remote academic users per day in professional online survey software use."
       - "Communicated complex instruction sets to resolve users' issues and meet their goals."
