@@ -1,4 +1,4 @@
-# C.V. highlights shown on the Bio & C.V. page. The full C.V. PDF is embedded from Google Drive (cv_drive_id in content/bio/index.md).
+# C.V. highlights shown on the Bio & C.V. page: education, and positions (research, industry; teaching positions come from data/teaching.yaml). The full C.V. PDF is embedded from Google Drive (cv_drive_id in content/bio/index.md).
 
 education:
   - years: "2016 – 2024"
@@ -54,3 +54,9 @@ positions:
       - "Calculated and tabulated thermal position distributions of crystal ions in various point symmetries."
     mentor: "Supervisor: Professor Branton J. Campbell"
 
+  - years: "2015"
+    role: "Product Specialist"
+    org: "Qualtrics, LLC, Provo, UT"
+    notes:
+      - "Instructed 20–30 remote academic users per day in professional online survey software use."
+      - "Communicated complex instruction sets to resolve users' issues and meet their goals."
