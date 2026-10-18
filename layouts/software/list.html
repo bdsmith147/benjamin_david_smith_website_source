@@ -5,8 +5,10 @@
     <h1>{{ .Title }}</h1>
     {{- with .Params.subtitle }}<p class="list-subtitle">{{ . | markdownify }}</p>{{ end }}
   </header>
-  {{- $featured := where .Pages "Params.featured" true }}
-  {{- $rest := .Pages.ByDate.Reverse | complement $featured }}
+  {{- /* Entries with `software_page: false` appear on the Works page but not here. */ -}}
+  {{- $pages := where .Pages "Params.software_page" "!=" false }}
+  {{- $featured := where $pages "Params.featured" true }}
+  {{- $rest := $pages.ByDate.Reverse | complement $featured }}
   <ul class="card-grid">
     {{- range $featured | append $rest }}
     <li class="card{{ if .Params.featured }} card-featured{{ end }}">
