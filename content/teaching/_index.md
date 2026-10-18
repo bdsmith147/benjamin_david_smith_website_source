@@ -1,7 +1,7 @@
 ---
 title: "Teaching"
 layout: teaching
-subtitle: "Inspire learners to expand their potential with me. Encourage an attitude and climate of vulnerability, community, and growth. Model a discipline of intentional practice."
+subtitle: "Inspire learners to expand their potential. Encourage an attitude and climate of vulnerability, community, and growth. Model a discipline of intentional practice."
 aliases: ["/teaching/main/", "/teaching/experience/", "/teaching/prof_dev/", "/teaching/feedback/"]
 phys111:
   description: "Despite being the center of some of the “hottest” and most disruptive advancements of the 21st century, quantum mechanics has the reputation of being sterile, esoteric, and incomprehensible for the average human being. In truth, however, many of the problems people perceive in learning quantum mechanics stem from the language used to describe it and the apparent lack of meaningful associations. This course represents an attempt to open these learning opportunities to a wider audience. It is based on the assumption that anyone with interest and dedication can appreciate and begin to learn quantum mechanics."
